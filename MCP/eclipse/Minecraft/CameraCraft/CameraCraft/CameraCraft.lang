@@ -1,0 +1,45 @@
+cameracraft.gui.deletePhoto:Delete
+cameracraft.gui.photosizeX:Width: 
+cameracraft.gui.photosizeY:Height: 
+cameracraft.gui.renamePhoto:Rename
+cameracraft.gui.photosLeft:%s Photos left
+cameracraft.gui.print:Print
+cameracraft.takephoto.fail:You can't take a photo with this item.
+cameracraft.photomiss:Hm, looks like the Save file is messed up: Photo not found.
+cameracraft.choosephotoname:Choose a name for this photo
+cameracraft.photoname.default:New Photo
+cameracraft.imageprocess.fail:Failed to take a screenshot or to process it.
+key.takephoto:Take Photo
+item.photo.normal.name:Photo
+item.photo.placeable.name:Poster
+item.photo.info.user:By %s
+item.photoFilter.green:Green
+item.photoFilter.none:Transparent
+item.photoFilter.name:%s Photographic Filter
+item.photoFilter.blue:Blue
+item.photoFilter.yellow:Yellow
+item.photoFilter.red:Red
+item.photostorage.count:Photos
+item.film.blackwhite.name:%sFilm
+item.film.color.name:%sColored Film
+item.film.finished:Processed 
+item.memoryCard.name:Memory Card
+item.camera.standard.name:Camera
+item.camera.digital.name:Digital Camera
+item.battery.name:%sV Battery
+item.teleportationBattery.name:Teleportation Battery
+tile.photoProcessor.name:Photo Processor
+tile.photoPrinter.name:Photo Station
+tile.photoStation.occupied:This Photo Station is occupied.
+tile.tripod.name:Tripod
+tile.teleportationEnabler.name:Teleporation Enabler
+achievement.buildCamera:Photo Artist
+achievement.buildCamera.desc:Craft a Camera out of Iron and Glass
+achievement.takePhoto:Click!
+achievement.takePhoto.desc:Take a photo with your newly crafted camera
+achievement.teleportPhoto:Woosh!
+achievement.teleportPhoto.desc:Teleport yourself with a Teleportation Photo
+achievement.poster:Paintings anyone?
+achievement.poster.desc:Craft a poster and hang it on the wall
+achievement.tripod:Say cheese!
+achievement.tripod.desc:Take a photo of yourself using a tripod
