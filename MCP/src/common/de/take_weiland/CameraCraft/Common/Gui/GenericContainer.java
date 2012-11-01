@@ -44,7 +44,8 @@ public abstract class GenericContainer extends Container {
 		return upperInventory;
 	}
 	
-	public ItemStack transferStackInSlot(int slot) {
+	@Override
+	public ItemStack transferStackInSlot(EntityPlayer player, int slot) {
         // TODO
 		return null;
     }

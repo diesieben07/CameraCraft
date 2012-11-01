@@ -7,11 +7,13 @@ import de.take_weiland.CameraCraft.Common.Inventory.SlotBattery;
 import de.take_weiland.CameraCraft.Common.Inventory.SlotForItem;
 import de.take_weiland.CameraCraft.Common.Items.CameraCraftItem;
 import net.minecraft.src.EntityPlayer;
+import net.minecraft.src.FurnaceRecipes;
 import net.minecraft.src.IInventory;
 import net.minecraft.src.InventoryPlayer;
 import net.minecraft.src.Item;
 import net.minecraft.src.ItemStack;
 import net.minecraft.src.Slot;
+import net.minecraft.src.TileEntityFurnace;
 
 public class ContainerCamera extends GenericContainer {
 	
@@ -40,5 +42,39 @@ public class ContainerCamera extends GenericContainer {
 	@Override
 	public String getGuiBackgroundTexture() {
 		return cameraInv.getType().guiBackground();
-	}
+	}/*
+	
+	@Override
+	public ItemStack transferStackInSlot(EntityPlayer player, int slot) {
+        ItemStack stackCopy = null;
+        Slot theSlot = (Slot)this.inventorySlots.get(slot);
+
+        if (theSlot != null && theSlot.getHasStack()) {
+            ItemStack stack = theSlot.getStack();
+            stackCopy = stack.copy();
+
+            if (slot < (cameraInv.getType() == CameraType.DIGITAL ? 3 : 2))) {
+            	if (!this.mergeItemStack(stackCopy, 3, 39, true)) {
+                    return null;
+                }
+                theSlot.onSlotChange(stack, stackCopy);
+            } else {
+            	stack.stackSize = 0;
+            }
+
+            if (stack.stackSize == 0) {
+                theSlot.putStack(null);
+            } else {
+                theSlot.onSlotChanged();
+            }
+
+            if (stack.stackSize == stackCopy.stackSize) {
+                return null;
+            }
+
+            theSlot.onPickupFromSlot(player, stack);
+        }
+
+        return stackCopy;
+    }*/
 }
