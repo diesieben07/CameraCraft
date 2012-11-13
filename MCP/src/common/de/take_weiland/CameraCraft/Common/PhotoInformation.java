@@ -23,6 +23,7 @@ import net.minecraft.src.MathHelper;
 import net.minecraft.src.NBTTagCompound;
 import net.minecraft.src.Teleporter;
 import net.minecraft.src.World;
+import net.minecraft.src.WorldServer;
 import net.minecraftforge.common.Configuration;
 
 public class PhotoInformation {
@@ -202,7 +203,9 @@ public class PhotoInformation {
 			}
 			player.worldObj.playSoundAtEntity(player, "mob.endermen.portal", 1, 1);
 			if (player.dimension != dimension) {
-				player.mcServer.getConfigurationManager().transferPlayerToDimension(player, dimension, new PhotoDimensionChanger());
+				if (player.worldObj instanceof WorldServer) {
+					player.mcServer.getConfigurationManager().transferPlayerToDimension(player, dimension, new PhotoDimensionChanger((WorldServer)player.worldObj));
+				}
 			} else {
 				setPosition(player);
 			}
@@ -217,8 +220,12 @@ public class PhotoInformation {
 	
 	private class PhotoDimensionChanger extends Teleporter {
 		
+		public PhotoDimensionChanger(WorldServer world) {
+			super(world);
+		}
+		
 		@Override
-		public void placeInPortal(World world, Entity entity, double entityX, double entityY, double entityZ, float entityRotationYaw) {
+		public void placeInPortal(Entity entity, double entityX, double entityY, double entityZ, float entityRotationYaw) {
 			setPosition(entity);
 		}
 	}

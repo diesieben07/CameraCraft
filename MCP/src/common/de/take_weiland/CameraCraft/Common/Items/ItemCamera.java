@@ -70,7 +70,7 @@ public class ItemCamera extends CameraCraftItem {
             }
         }
 
-        if (!player.canCurrentToolHarvestBlock(x, y, z) || itemStack.stackSize == 0) {
+        if (!player.func_82247_a(x, y, z, side, itemStack) || itemStack.stackSize == 0) {
             return false;
         } else {
         	if (CameraCraftBlock.cameraPlaced.canPlaceBlockAt(world, x, y, z)) {

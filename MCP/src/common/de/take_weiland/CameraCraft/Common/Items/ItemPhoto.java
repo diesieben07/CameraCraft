@@ -27,7 +27,7 @@ public class ItemPhoto extends ItemPhotoStorage {
 	@Override
 	public boolean onItemUse(ItemStack itemStack, EntityPlayer player, World world, int tileX, int tileY, int tileZ, int side, float par8, float par9, float par10) {
 
-		if (itemStack.getItemDamage() != 1 || !player.canCurrentToolHarvestBlock(tileX, tileY, tileZ)) {
+		if (itemStack.getItemDamage() != 1 || !player.func_82247_a(tileX, tileY, tileZ, side, itemStack)) {
         	return false;
         } else {
         	byte direction = 0;

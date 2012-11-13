@@ -36,8 +36,8 @@ import de.take_weiland.CameraCraft.Common.Network.PacketHandler;
 import de.take_weiland.CameraCraft.Common.Network.ConnectionHandler;
 import de.take_weiland.CameraCraft.Common.Recipes.CameraCraftRecipes;
 
-@Mod(modid = "CameraCraft", version = "2.1.1", name = "CameraCraft")
-@NetworkMod(versionBounds = "[2.1,2.1.1]", channels = { "CameraCraft" }, packetHandler = PacketHandler.class, connectionHandler = ConnectionHandler.class, clientSideRequired = true, serverSideRequired = false)
+@Mod(modid = "CameraCraft", version = "2.2", name = "CameraCraft")
+@NetworkMod(versionBounds = "[2.2]", channels = { "CameraCraft" }, packetHandler = PacketHandler.class, connectionHandler = ConnectionHandler.class, clientSideRequired = true, serverSideRequired = false)
 public class CameraCraft {
 	
 	public static CreativeTabs theCreativeTab;

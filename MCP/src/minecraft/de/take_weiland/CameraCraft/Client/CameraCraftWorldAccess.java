@@ -58,4 +58,7 @@ public class CameraCraftWorldAccess implements IWorldAccess {
 
 	@Override
 	public void func_82746_a(int var1, int var2, int var3, int var4, int var5) { }
+
+	@Override
+	public void func_85102_a(EntityPlayer var1, String var2, double var3, double var5, double var7, float var9, float var10) { }
 }
