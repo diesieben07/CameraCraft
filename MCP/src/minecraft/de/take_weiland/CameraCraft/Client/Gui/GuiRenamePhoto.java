@@ -38,9 +38,6 @@ public class GuiRenamePhoto extends GuiScreen {
 	
 	@Override
 	public void updateScreen() {
-		if (textFieldName == null) {
-			return;
-		}
         textFieldName.updateCursorCounter();
     }
 	
@@ -56,6 +53,9 @@ public class GuiRenamePhoto extends GuiScreen {
 	
 	@Override
 	public void drawScreen(int par1, int par2, float par3) {
+		if (this.mc == null) {
+			return;
+		}
 		drawDefaultBackground();
 		
 		super.drawScreen(par1, par2, par3);
