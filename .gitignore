@@ -1,8 +1,21 @@
-MCP/CHANGELOG
-*.class
-*.zip
+/forge/*.*
+/forge/client/*
+/forge/common/*
+/forge/fml/*
+/forge/patches/*
+/forge/mcp/bin/*
+/forge/mcp/conf/*
+/forge/mcp/docs/*
+/forge/mcp/jars/*
+/forge/mcp/lib/*
+/forge/mcp/logs/*
+/forge/mcp/reobf/*
+/forge/mcp/runtime/*
+/forge/mcp/temp/*
+/forge/mcp/CHANGELOG
+/forge/mcp/*.*
+/forge/mcp/eclipse/*
 
-# Package Files #
-*.jar
-*.war
-*.ear
+/forge/mcp/src/minecraft/*
+!/forge/mcp/src/minecraft/de
+!/forge/mcp/src/minecraft/CameraCraft
