@@ -20,7 +20,7 @@ public class CameraCraftClientTickHandler implements ITickHandler {
 		return instance;
 	}
 	
-	public static void watchNextTick(AfterTickCallback callback) {
+	public synchronized static void watchNextTick(AfterTickCallback callback) {
 		watching = callback;
 	}
 	
@@ -49,5 +49,4 @@ public class CameraCraftClientTickHandler implements ITickHandler {
 	public String getLabel() {
 		return "CameraCraftTicker";
 	}
-
 }

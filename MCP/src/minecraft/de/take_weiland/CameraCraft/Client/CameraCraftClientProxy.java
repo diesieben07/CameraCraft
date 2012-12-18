@@ -108,7 +108,7 @@ public class CameraCraftClientProxy extends CameraCraftCommonProxy {
 		if (ItemCamera.canTakePhoto(currentItem)) {
 			boolean hideGuiStatePrevious = mc.gameSettings.hideGUI;
 			mc.gameSettings.hideGUI = true;
-			CameraCraftClientTickHandler.watchNextTick(new AfterTickCallback(mc, currentItem, hideGuiStatePrevious, photoID));
+			CameraCraftClientTickHandler.watchNextTick(new PhotoCreator(mc, currentItem, hideGuiStatePrevious, photoID));
 		}
 	}
 	@Override
@@ -140,7 +140,7 @@ public class CameraCraftClientProxy extends CameraCraftCommonProxy {
 				mc.renderViewEntity = camera;
 				boolean hideGuiStatePrevious = mc.gameSettings.hideGUI;
 				mc.gameSettings.hideGUI = true;
-				CameraCraftClientTickHandler.watchNextTick(new AfterTickCallback(mc, tileEntity.getCameraInventory().getCameraStack(), hideGuiStatePrevious, photoId, x, y, z));
+				CameraCraftClientTickHandler.watchNextTick(new PhotoCreator(mc, tileEntity.getCameraInventory().getCameraStack(), hideGuiStatePrevious, photoId, x, y, z));
 			}
 		}
 	}

@@ -16,6 +16,8 @@ import com.google.common.io.ByteArrayDataOutput;
 import cpw.mods.fml.client.FMLClientHandler;
 import cpw.mods.fml.common.network.PacketDispatcher;
 
+import de.take_weiland.CameraCraft.Client.AfterTickCallback;
+import de.take_weiland.CameraCraft.Client.CameraCraftClientTickHandler;
 import de.take_weiland.CameraCraft.Client.Gui.GuiRenamePhoto;
 import de.take_weiland.CameraCraft.Client.Gui.IRenamePhotoCallback;
 import de.take_weiland.CameraCraft.Common.CameraCraft;
@@ -135,22 +137,28 @@ public class CameraCraftImageHelper {
 				if (!useTileEntity) {
 					final ByteArrayDataOutput data = PacketHelper.buildPacket(NetAction.PHOTO_TAKEN);
 					data.writeUTF(photoID);
-					FMLClientHandler.instance().getClient().displayGuiScreen(new GuiRenamePhoto(new IRenamePhotoCallback() {
+					CameraCraftClientTickHandler.watchNextTick(new AfterTickCallback() {
 						
 						@Override
-						public void nameChanged(String newName) {
-							data.writeUTF(newName);
-							PacketDispatcher.sendPacketToServer(PacketHelper.finishPacket(data));
-							FMLClientHandler.instance().getClient().displayGuiScreen(null);
+						public void afterTick() {
+							FMLClientHandler.instance().getClient().displayGuiScreen(new GuiRenamePhoto(new IRenamePhotoCallback() {
+								
+								@Override
+								public void nameChanged(String newName) {
+									data.writeUTF(newName);
+									PacketDispatcher.sendPacketToServer(PacketHelper.finishPacket(data));
+									FMLClientHandler.instance().getClient().displayGuiScreen(null);
+								}
+								
+								@Override
+								public void abort() {
+									data.writeUTF(StringTranslate.getInstance().translateKey("cameracraft.photoname.default"));
+									PacketDispatcher.sendPacketToServer(PacketHelper.finishPacket(data));
+									FMLClientHandler.instance().getClient().displayGuiScreen(null);
+								}
+							}, StringTranslate.getInstance().translateKey("cameracraft.photoname.default")));
 						}
-						
-						@Override
-						public void abort() {
-							data.writeUTF(StringTranslate.getInstance().translateKey("cameracraft.photoname.default"));
-							PacketDispatcher.sendPacketToServer(PacketHelper.finishPacket(data));
-							FMLClientHandler.instance().getClient().displayGuiScreen(null);
-						}
-					}, StringTranslate.getInstance().translateKey("cameracraft.photoname.default")));
+					});
 				} else {
 					ByteArrayDataOutput output = PacketHelper.buildPacket(NetAction.PHOTO_TAKEN_NON_PLAYER);
 					output.writeInt(x);
