@@ -1,12 +1,17 @@
 package de.take_weiland.CameraCraft.Common.Items;
 
+import static de.take_weiland.CameraCraft.Common.ConfigurationManager.batteryId;
+import static de.take_weiland.CameraCraft.Common.ConfigurationManager.cameraId;
+import static de.take_weiland.CameraCraft.Common.ConfigurationManager.filmId;
+import static de.take_weiland.CameraCraft.Common.ConfigurationManager.memoryCardId;
+import static de.take_weiland.CameraCraft.Common.ConfigurationManager.photoFilterId;
+import static de.take_weiland.CameraCraft.Common.ConfigurationManager.photoId;
+import static de.take_weiland.CameraCraft.Common.ConfigurationManager.teleportationBatteryId;
+import net.minecraft.creativetab.CreativeTabs;
+import net.minecraft.item.Item;
+import net.minecraft.item.ItemStack;
+import net.minecraft.nbt.NBTTagCompound;
 import de.take_weiland.CameraCraft.Common.CameraCraft;
-import static de.take_weiland.CameraCraft.Common.ConfigurationManager.*;
-import net.minecraft.src.CreativeTabs;
-import net.minecraft.src.Item;
-import net.minecraft.src.ItemStack;
-import net.minecraft.src.NBTTagCompound;
-import net.minecraftforge.common.Configuration;
 
 public class CameraCraftItem extends Item {
 	

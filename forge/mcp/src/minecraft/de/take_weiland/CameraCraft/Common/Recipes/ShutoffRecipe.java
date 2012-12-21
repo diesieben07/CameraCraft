@@ -1,9 +1,9 @@
 package de.take_weiland.CameraCraft.Common.Recipes;
 
-import net.minecraft.src.IRecipe;
-import net.minecraft.src.InventoryCrafting;
-import net.minecraft.src.ItemStack;
-import net.minecraft.src.World;
+import net.minecraft.inventory.InventoryCrafting;
+import net.minecraft.item.ItemStack;
+import net.minecraft.item.crafting.IRecipe;
+import net.minecraft.world.World;
 
 public class ShutoffRecipe implements IRecipe {
 
@@ -13,6 +13,10 @@ public class ShutoffRecipe implements IRecipe {
 	
 	public ShutoffRecipe(IRecipe parentRecipe) {
 		this.parentRecipe = parentRecipe;
+	}
+	
+	public IRecipe parent() {
+		return parentRecipe;
 	}
 	
 	@Override
@@ -41,5 +45,9 @@ public class ShutoffRecipe implements IRecipe {
 	
 	public static void disable() {
 		isEnabled = false;
+	}
+	
+	public static boolean enabled() {
+		return isEnabled;
 	}
 }

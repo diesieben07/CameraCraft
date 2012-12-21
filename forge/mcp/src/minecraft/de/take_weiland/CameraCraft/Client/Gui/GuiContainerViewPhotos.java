@@ -1,23 +1,22 @@
 package de.take_weiland.CameraCraft.Client.Gui;
 
+import net.minecraft.client.gui.GuiButton;
+import net.minecraft.client.gui.inventory.GuiContainer;
+import net.minecraft.util.StringTranslate;
+
 import org.lwjgl.opengl.GL11;
 
 import com.google.common.io.ByteArrayDataOutput;
 
 import cpw.mods.fml.common.network.PacketDispatcher;
-
 import de.take_weiland.CameraCraft.Client.PhotoSizeInfo;
 import de.take_weiland.CameraCraft.Client.Rendering.RenderEntityPhoto;
 import de.take_weiland.CameraCraft.Common.IPhotoSource;
 import de.take_weiland.CameraCraft.Common.PhotoInformation;
 import de.take_weiland.CameraCraft.Common.PhotoSizeAmountInfo;
 import de.take_weiland.CameraCraft.Common.Gui.ContainerViewPhotos;
-import de.take_weiland.CameraCraft.Common.Network.PacketHelper;
 import de.take_weiland.CameraCraft.Common.Network.NetAction;
-import net.minecraft.src.Container;
-import net.minecraft.src.GuiButton;
-import net.minecraft.src.GuiContainer;
-import net.minecraft.src.StringTranslate;
+import de.take_weiland.CameraCraft.Common.Network.PacketHelper;
 
 public class GuiContainerViewPhotos extends GuiContainer {
 	
@@ -197,14 +196,14 @@ public class GuiContainerViewPhotos extends GuiContainer {
 		
 		case BUTTON_TELEPORT:
 			output = PacketHelper.buildPacket(NetAction.REQUEST_TELEPORT);
-			output.writeInt(mc.thePlayer.craftingInventory.windowId);
+			output.writeInt(mc.thePlayer.openContainer.windowId);
 			output.writeByte(currentImage);
 			PacketDispatcher.sendPacketToServer(PacketHelper.finishPacket(output));
 			break;
 		
 		case BUTTON_DELETE:
 			output = PacketHelper.buildPacket(NetAction.REQUEST_DELETE);
-			output.writeInt(mc.thePlayer.craftingInventory.windowId);
+			output.writeInt(mc.thePlayer.openContainer.windowId);
 			output.writeByte(currentImage);
 			PacketDispatcher.sendPacketToServer(PacketHelper.finishPacket(output));
 			source.deletePhoto(currentImage);
@@ -239,7 +238,7 @@ public class GuiContainerViewPhotos extends GuiContainer {
 			
 		case BUTTON_PRINT:
 			output = PacketHelper.buildPacket(NetAction.REQUEST_PRINT);
-			output.writeInt(mc.thePlayer.craftingInventory.windowId);
+			output.writeInt(mc.thePlayer.openContainer.windowId);
 			output.writeByte(numSelectedPhotos);
 			for (PhotoSizeAmountInfo info : amountInfo) {
 				if (info != null) {
@@ -263,7 +262,7 @@ public class GuiContainerViewPhotos extends GuiContainer {
 		public void nameChanged(String newName) {
 			container.getSource().nameChanged(currentImage, newName);
         	ByteArrayDataOutput output = PacketHelper.buildPacket(NetAction.REQUEST_RENAME);
-        	output.writeInt(mc.thePlayer.craftingInventory.windowId);
+        	output.writeInt(mc.thePlayer.openContainer.windowId);
         	output.writeByte(currentImage);
         	output.writeUTF(newName);
         	PacketDispatcher.sendPacketToServer(PacketHelper.finishPacket(output));

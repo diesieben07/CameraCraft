@@ -1,8 +1,6 @@
 package de.take_weiland.CameraCraft.Client.Rendering;
 
-import de.take_weiland.CameraCraft.Common.Items.CameraCraftItem;
-import de.take_weiland.CameraCraft.Common.Items.ItemPhotoStorage;
-import net.minecraft.src.ItemStack;
+import net.minecraft.item.ItemStack;
 import net.minecraftforge.client.IItemRenderer;
 
 public class TeleportationPhotoItemRenderer implements IItemRenderer {

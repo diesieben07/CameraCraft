@@ -1,22 +1,20 @@
 package de.take_weiland.CameraCraft.Common.Blocks;
 
+import net.minecraft.block.material.Material;
+import net.minecraft.entity.player.EntityPlayer;
+import net.minecraft.world.World;
+import net.minecraftforge.common.ForgeDirection;
+
 import com.google.common.io.ByteArrayDataOutput;
 
-import cpw.mods.fml.common.FMLCommonHandler;
 import cpw.mods.fml.common.network.PacketDispatcher;
 import cpw.mods.fml.common.network.Player;
 import de.take_weiland.CameraCraft.Common.ConfigurationManager;
 import de.take_weiland.CameraCraft.Common.Items.ItemCamera;
 import de.take_weiland.CameraCraft.Common.Items.ItemPhoto;
-import de.take_weiland.CameraCraft.Common.Network.PacketHelper;
 import de.take_weiland.CameraCraft.Common.Network.NetAction;
+import de.take_weiland.CameraCraft.Common.Network.PacketHelper;
 import de.take_weiland.CameraCraft.Common.TileEntities.TileEntityCamera;
-import net.minecraft.src.AxisAlignedBB;
-import net.minecraft.src.Block;
-import net.minecraft.src.EntityPlayer;
-import net.minecraft.src.Material;
-import net.minecraft.src.World;
-import net.minecraftforge.common.ForgeDirection;
 
 public class BlockTripod extends CameraCraftBlock {
 

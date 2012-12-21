@@ -1,8 +1,8 @@
 package de.take_weiland.CameraCraft.Common.Blocks;
 
-import net.minecraft.src.EntityLiving;
-import net.minecraft.src.MathHelper;
-import net.minecraft.src.World;
+import net.minecraft.entity.EntityLiving;
+import net.minecraft.util.MathHelper;
+import net.minecraft.world.World;
 
 public class BlockDirectionHelper {
 	

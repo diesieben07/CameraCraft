@@ -1,16 +1,14 @@
 package de.take_weiland.CameraCraft.Common;
 
+import net.minecraft.entity.player.EntityPlayer;
+import net.minecraft.inventory.IInventory;
+import net.minecraft.item.Item;
+import net.minecraft.item.ItemStack;
+import net.minecraft.stats.Achievement;
+import net.minecraftforge.common.AchievementPage;
 import cpw.mods.fml.common.ICraftingHandler;
 import de.take_weiland.CameraCraft.Common.Blocks.CameraCraftBlock;
 import de.take_weiland.CameraCraft.Common.Items.CameraCraftItem;
-import net.minecraft.src.Achievement;
-import net.minecraft.src.AchievementList;
-import net.minecraft.src.EntityPlayer;
-import net.minecraft.src.IInventory;
-import net.minecraft.src.Item;
-import net.minecraft.src.ItemStack;
-import net.minecraft.src.StringTranslate;
-import net.minecraftforge.common.AchievementPage;
 
 public class Achievements implements ICraftingHandler {
 	public static final Achievement buildCamera = new Achievement(19991, "buildCamera", 0, 0, new ItemStack(CameraCraftItem.camera, 1, CameraType.STANDARD.toItemDamage()), null).registerAchievement();

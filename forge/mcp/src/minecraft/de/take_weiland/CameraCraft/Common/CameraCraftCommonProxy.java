@@ -3,20 +3,12 @@ package de.take_weiland.CameraCraft.Common;
 import java.awt.image.BufferedImage;
 import java.io.File;
 
-import com.google.common.io.ByteArrayDataOutput;
-
-import cpw.mods.fml.common.FMLCommonHandler;
-import cpw.mods.fml.common.network.PacketDispatcher;
-import cpw.mods.fml.common.network.Player;
+import net.minecraft.entity.Entity;
+import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.server.MinecraftServer;
-import net.minecraft.src.ContainerMerchant;
-import net.minecraft.src.Entity;
-import net.minecraft.src.EntityPlayer;
-import net.minecraft.src.EntityPlayerMP;
-import net.minecraft.src.InventoryMerchant;
-import net.minecraft.src.StringTranslate;
-import net.minecraft.src.World;
-import net.minecraft.src.WorldServer;
+import net.minecraft.world.World;
+import net.minecraft.world.WorldServer;
+import cpw.mods.fml.common.FMLCommonHandler;
 
 public class CameraCraftCommonProxy {
 

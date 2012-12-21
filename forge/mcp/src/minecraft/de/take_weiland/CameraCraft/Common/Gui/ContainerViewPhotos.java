@@ -1,13 +1,8 @@
 package de.take_weiland.CameraCraft.Common.Gui;
 
-import cpw.mods.fml.common.FMLCommonHandler;
-import de.take_weiland.CameraCraft.Common.CameraCraft;
+import net.minecraft.entity.player.EntityPlayer;
+import net.minecraft.inventory.Container;
 import de.take_weiland.CameraCraft.Common.IPhotoSource;
-import de.take_weiland.CameraCraft.Common.PhotoSizeAmountInfo;
-import net.minecraft.src.Container;
-import net.minecraft.src.EntityPlayer;
-import net.minecraft.src.IInventory;
-import net.minecraft.src.InventoryPlayer;
 
 public class ContainerViewPhotos extends Container {
 

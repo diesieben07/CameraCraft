@@ -2,14 +2,13 @@ package de.take_weiland.CameraCraft.Common.Items;
 
 import java.util.List;
 
-import cpw.mods.fml.common.Side;
-import cpw.mods.fml.common.asm.SideOnly;
+import net.minecraft.creativetab.CreativeTabs;
+import net.minecraft.item.ItemStack;
+import net.minecraft.util.MathHelper;
+import net.minecraft.util.StringTranslate;
+import cpw.mods.fml.relauncher.Side;
+import cpw.mods.fml.relauncher.SideOnly;
 import de.take_weiland.CameraCraft.Common.FilterType;
-
-import net.minecraft.src.CreativeTabs;
-import net.minecraft.src.ItemStack;
-import net.minecraft.src.MathHelper;
-import net.minecraft.src.StringTranslate;
 
 public class ItemPhotoFilter extends CameraCraftItem {
 

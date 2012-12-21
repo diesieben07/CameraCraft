@@ -1,17 +1,20 @@
 package de.take_weiland.CameraCraft.Common.Blocks;
 
+import static de.take_weiland.CameraCraft.Common.ConfigurationManager.cameraBlockId;
+import static de.take_weiland.CameraCraft.Common.ConfigurationManager.photoProcessorId;
+import static de.take_weiland.CameraCraft.Common.ConfigurationManager.photoStationId;
+import static de.take_weiland.CameraCraft.Common.ConfigurationManager.teleportationEnablerId;
+import static de.take_weiland.CameraCraft.Common.ConfigurationManager.tripodId;
+import net.minecraft.block.Block;
+import net.minecraft.block.material.Material;
+import net.minecraft.creativetab.CreativeTabs;
+import net.minecraft.item.ItemBlock;
 import cpw.mods.fml.common.registry.GameRegistry;
 import de.take_weiland.CameraCraft.Common.Items.CameraCraftItem;
 import de.take_weiland.CameraCraft.Common.TileEntities.TileEntityCamera;
 import de.take_weiland.CameraCraft.Common.TileEntities.TileEntityPhotoProcessor;
 import de.take_weiland.CameraCraft.Common.TileEntities.TileEntityPhotoStation;
 import de.take_weiland.CameraCraft.Common.TileEntities.TileEntityTeleporatationEnabler;
-import static de.take_weiland.CameraCraft.Common.ConfigurationManager.*;
-import net.minecraft.src.Block;
-import net.minecraft.src.CreativeTabs;
-import net.minecraft.src.Item;
-import net.minecraft.src.ItemBlock;
-import net.minecraft.src.Material;
 
 public class CameraCraftBlock extends Block {
 

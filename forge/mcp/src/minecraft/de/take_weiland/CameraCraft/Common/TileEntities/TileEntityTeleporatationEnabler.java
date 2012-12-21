@@ -2,10 +2,9 @@ package de.take_weiland.CameraCraft.Common.TileEntities;
 
 import java.util.List;
 
+import net.minecraft.tileentity.TileEntity;
+import net.minecraft.world.World;
 import de.take_weiland.CameraCraft.Common.Blocks.CameraCraftBlock;
-
-import net.minecraft.src.TileEntity;
-import net.minecraft.src.World;
 
 public class TileEntityTeleporatationEnabler extends TileEntity {
 	public static boolean isTileEntityInRange(World world, int x, int y, int z, int range) {

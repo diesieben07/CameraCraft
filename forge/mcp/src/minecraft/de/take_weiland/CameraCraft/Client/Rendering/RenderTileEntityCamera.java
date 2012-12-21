@@ -1,13 +1,14 @@
 package de.take_weiland.CameraCraft.Client.Rendering;
 
+import net.minecraft.client.renderer.tileentity.TileEntitySpecialRenderer;
+import net.minecraft.tileentity.TileEntity;
+
 import org.lwjgl.opengl.GL11;
 
 import de.take_weiland.CameraCraft.Client.Models.ModelDigitalCamera;
 import de.take_weiland.CameraCraft.Client.Models.ModelStandardCamera;
 import de.take_weiland.CameraCraft.Common.CameraType;
 import de.take_weiland.CameraCraft.Common.TileEntities.TileEntityCamera;
-import net.minecraft.src.TileEntity;
-import net.minecraft.src.TileEntitySpecialRenderer;
 
 public class RenderTileEntityCamera extends TileEntitySpecialRenderer {
 

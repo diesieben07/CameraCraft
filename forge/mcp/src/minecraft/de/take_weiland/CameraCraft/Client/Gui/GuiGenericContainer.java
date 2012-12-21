@@ -1,22 +1,13 @@
 package de.take_weiland.CameraCraft.Client.Gui;
 
+import net.minecraft.client.gui.inventory.GuiContainer;
+import net.minecraft.inventory.IInventory;
+import net.minecraft.util.StatCollector;
+
 import org.lwjgl.opengl.GL11;
 
-import com.google.common.io.ByteArrayDataOutput;
-
-import cpw.mods.fml.common.network.PacketDispatcher;
-
 import de.take_weiland.CameraCraft.Common.Gui.GenericContainer;
-import de.take_weiland.CameraCraft.Common.Gui.ContainerPhotoProcessor;
 import de.take_weiland.CameraCraft.Common.Inventory.IProgressInventory;
-import de.take_weiland.CameraCraft.Common.Network.PacketHelper;
-import de.take_weiland.CameraCraft.Common.Network.NetAction;
-import de.take_weiland.CameraCraft.Common.TileEntities.TileEntityPhotoProcessor;
-
-import net.minecraft.src.GuiButton;
-import net.minecraft.src.GuiContainer;
-import net.minecraft.src.IInventory;
-import net.minecraft.src.StatCollector;
 
 public class GuiGenericContainer extends GuiContainer {
 

@@ -1,8 +1,8 @@
 package de.take_weiland.CameraCraft.Common.Inventory;
 
+import net.minecraft.entity.player.EntityPlayer;
+import net.minecraft.item.ItemStack;
 import de.take_weiland.CameraCraft.Common.Gui.GuiScreens;
-import net.minecraft.src.EntityPlayer;
-import net.minecraft.src.ItemStack;
 
 public class InventoryCameraHotbar extends InventoryCamera {
 

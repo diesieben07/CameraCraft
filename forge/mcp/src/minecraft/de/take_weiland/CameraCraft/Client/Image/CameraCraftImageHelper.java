@@ -1,21 +1,21 @@
 package de.take_weiland.CameraCraft.Client.Image;
 
-import java.awt.Graphics2D;
 import java.awt.image.BufferedImage;
 import java.awt.image.ColorConvertOp;
 import java.io.ByteArrayInputStream;
 import java.io.File;
 import java.io.IOException;
 import java.nio.ByteBuffer;
-import java.util.Random;
 
 import javax.imageio.ImageIO;
+
+import net.minecraft.item.ItemStack;
+import net.minecraft.util.StringTranslate;
 
 import com.google.common.io.ByteArrayDataOutput;
 
 import cpw.mods.fml.client.FMLClientHandler;
 import cpw.mods.fml.common.network.PacketDispatcher;
-
 import de.take_weiland.CameraCraft.Client.AfterTickCallback;
 import de.take_weiland.CameraCraft.Client.CameraCraftClientTickHandler;
 import de.take_weiland.CameraCraft.Client.Gui.GuiRenamePhoto;
@@ -26,15 +26,8 @@ import de.take_weiland.CameraCraft.Common.FilterType;
 import de.take_weiland.CameraCraft.Common.Inventory.InventoryCamera;
 import de.take_weiland.CameraCraft.Common.Items.CameraCraftItem;
 import de.take_weiland.CameraCraft.Common.Items.ItemCamera;
-import de.take_weiland.CameraCraft.Common.Network.PacketHelper;
 import de.take_weiland.CameraCraft.Common.Network.NetAction;
-
-import net.minecraft.src.EntityPlayer;
-import net.minecraft.src.ISaveHandler;
-import net.minecraft.src.ItemStack;
-import net.minecraft.src.SaveHandler;
-import net.minecraft.src.StringTranslate;
-import net.minecraft.src.World;
+import de.take_weiland.CameraCraft.Common.Network.PacketHelper;
 
 public class CameraCraftImageHelper {
 

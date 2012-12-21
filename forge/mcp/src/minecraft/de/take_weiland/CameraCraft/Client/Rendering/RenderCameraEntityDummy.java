@@ -1,7 +1,7 @@
 package de.take_weiland.CameraCraft.Client.Rendering;
 
-import net.minecraft.src.Entity;
-import net.minecraft.src.Render;
+import net.minecraft.client.renderer.entity.Render;
+import net.minecraft.entity.Entity;
 
 public class RenderCameraEntityDummy extends Render {
 

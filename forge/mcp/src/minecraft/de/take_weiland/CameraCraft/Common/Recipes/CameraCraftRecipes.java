@@ -1,19 +1,13 @@
 package de.take_weiland.CameraCraft.Common.Recipes;
 
-import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.List;
 
-import net.minecraft.src.Block;
-import net.minecraft.src.CraftingManager;
-import net.minecraft.src.IRecipe;
-import net.minecraft.src.Item;
-import net.minecraft.src.ItemStack;
-import net.minecraft.src.ShapelessRecipes;
-import net.minecraftforge.common.Configuration;
+import net.minecraft.block.Block;
+import net.minecraft.item.Item;
+import net.minecraft.item.ItemStack;
+import net.minecraft.item.crafting.CraftingManager;
+import net.minecraft.item.crafting.IRecipe;
 import cpw.mods.fml.common.registry.GameRegistry;
-import de.take_weiland.CameraCraft.Common.CameraCraft;
-import de.take_weiland.CameraCraft.Common.ConfigurationManager;
 import de.take_weiland.CameraCraft.Common.Blocks.CameraCraftBlock;
 import de.take_weiland.CameraCraft.Common.Items.CameraCraftItem;
 

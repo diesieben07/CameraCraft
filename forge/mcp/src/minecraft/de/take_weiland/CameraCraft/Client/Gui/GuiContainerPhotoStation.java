@@ -1,18 +1,15 @@
 package de.take_weiland.CameraCraft.Client.Gui;
 
+import net.minecraft.client.gui.GuiButton;
+
 import com.google.common.io.ByteArrayDataOutput;
 
 import cpw.mods.fml.common.network.PacketDispatcher;
-import net.minecraft.src.GuiButton;
-import net.minecraft.src.StringTranslate;
-import de.take_weiland.CameraCraft.Client.PhotoSizeInfo;
-import de.take_weiland.CameraCraft.Common.IPhotoSource;
 import de.take_weiland.CameraCraft.Common.PhotoInformation;
-import de.take_weiland.CameraCraft.Common.Gui.GenericContainer;
 import de.take_weiland.CameraCraft.Common.Gui.ContainerPhotoStation;
 import de.take_weiland.CameraCraft.Common.Items.ItemPhotoStorage;
-import de.take_weiland.CameraCraft.Common.Network.PacketHelper;
 import de.take_weiland.CameraCraft.Common.Network.NetAction;
+import de.take_weiland.CameraCraft.Common.Network.PacketHelper;
 import de.take_weiland.CameraCraft.Common.TileEntities.TileEntityPhotoStation;
 
 public class GuiContainerPhotoStation extends GuiGenericContainer {

@@ -1,6 +1,5 @@
 package de.take_weiland.CameraCraft.Common;
 
-import cpw.mods.fml.common.FMLCommonHandler;
 import net.minecraftforge.common.Configuration;
 
 public class ConfigurationManager {

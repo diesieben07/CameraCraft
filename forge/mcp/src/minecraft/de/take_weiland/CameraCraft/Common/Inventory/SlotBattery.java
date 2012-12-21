@@ -1,8 +1,8 @@
 package de.take_weiland.CameraCraft.Common.Inventory;
 
+import net.minecraft.inventory.IInventory;
+import net.minecraft.item.ItemStack;
 import de.take_weiland.CameraCraft.Common.IndustrialCraftManager;
-import net.minecraft.src.IInventory;
-import net.minecraft.src.ItemStack;
 
 public class SlotBattery extends SlotForItem {
 

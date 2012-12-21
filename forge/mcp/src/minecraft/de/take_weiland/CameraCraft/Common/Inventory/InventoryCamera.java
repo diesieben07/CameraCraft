@@ -2,10 +2,11 @@ package de.take_weiland.CameraCraft.Common.Inventory;
 
 import java.util.List;
 
-import cpw.mods.fml.common.FMLCommonHandler;
-import cpw.mods.fml.common.Side;
-import cpw.mods.fml.common.asm.SideOnly;
-import de.take_weiland.CameraCraft.Common.CameraCraft;
+import net.minecraft.entity.player.EntityPlayer;
+import net.minecraft.inventory.IInventory;
+import net.minecraft.item.Item;
+import net.minecraft.item.ItemStack;
+import net.minecraft.nbt.NBTTagCompound;
 import de.take_weiland.CameraCraft.Common.Achievements;
 import de.take_weiland.CameraCraft.Common.CameraType;
 import de.take_weiland.CameraCraft.Common.ConfigurationManager;
@@ -13,18 +14,10 @@ import de.take_weiland.CameraCraft.Common.IPhotoSource;
 import de.take_weiland.CameraCraft.Common.IndustrialCraftManager;
 import de.take_weiland.CameraCraft.Common.PhotoInformation;
 import de.take_weiland.CameraCraft.Common.PhotoSizeAmountInfo;
-import de.take_weiland.CameraCraft.Common.Entities.EntityCamera;
-import de.take_weiland.CameraCraft.Common.Gui.GuiScreens;
 import de.take_weiland.CameraCraft.Common.Items.CameraCraftItem;
 import de.take_weiland.CameraCraft.Common.Items.ItemBattery;
 import de.take_weiland.CameraCraft.Common.Items.ItemPhotoStorage;
 import de.take_weiland.CameraCraft.Common.TileEntities.TileEntityCamera;
-import net.minecraft.src.EntityPlayer;
-import net.minecraft.src.IInventory;
-import net.minecraft.src.Item;
-import net.minecraft.src.ItemStack;
-import net.minecraft.src.NBTTagCompound;
-import net.minecraft.src.NBTTagList;
 
 public abstract class InventoryCamera implements IInventory, IPhotoSource {
 

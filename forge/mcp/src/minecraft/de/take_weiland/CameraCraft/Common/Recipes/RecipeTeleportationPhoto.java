@@ -1,15 +1,14 @@
 package de.take_weiland.CameraCraft.Common.Recipes;
 
+import net.minecraft.inventory.InventoryCrafting;
+import net.minecraft.item.Item;
+import net.minecraft.item.ItemStack;
+import net.minecraft.item.crafting.IRecipe;
+import net.minecraft.world.World;
 import de.take_weiland.CameraCraft.Common.PhotoInformation;
 import de.take_weiland.CameraCraft.Common.Inventory.InventoryHelper;
 import de.take_weiland.CameraCraft.Common.Items.CameraCraftItem;
 import de.take_weiland.CameraCraft.Common.Items.ItemPhotoStorage;
-import net.minecraft.src.IRecipe;
-import net.minecraft.src.InventoryCrafting;
-import net.minecraft.src.Item;
-import net.minecraft.src.ItemStack;
-import net.minecraft.src.NBTTagCompound;
-import net.minecraft.src.World;
 
 public class RecipeTeleportationPhoto implements IRecipe {
 	

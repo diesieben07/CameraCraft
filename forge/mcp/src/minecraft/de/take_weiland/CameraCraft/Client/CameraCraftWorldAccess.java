@@ -1,10 +1,10 @@
 package de.take_weiland.CameraCraft.Client;
 
+import net.minecraft.entity.Entity;
+import net.minecraft.entity.player.EntityPlayer;
+import net.minecraft.world.IWorldAccess;
 import de.take_weiland.CameraCraft.Client.Rendering.RenderEntityPhoto;
 import de.take_weiland.CameraCraft.Common.Entities.EntityPhoto;
-import net.minecraft.src.Entity;
-import net.minecraft.src.EntityPlayer;
-import net.minecraft.src.IWorldAccess;
 
 public class CameraCraftWorldAccess implements IWorldAccess {
 
@@ -27,15 +27,6 @@ public class CameraCraftWorldAccess implements IWorldAccess {
 			RenderEntityPhoto.unregisterUse(new PhotoSizeInfo(photo.info));
 		}
 	}
-	
-	@Override
-	public void markBlockNeedsUpdate(int var1, int var2, int var3) { }
-
-	@Override
-	public void markBlockNeedsUpdate2(int var1, int var2, int var3) { }
-
-	@Override
-	public void markBlockRangeNeedsUpdate(int var1, int var2, int var3, int var4, int var5, int var6) { }
 
 	@Override
 	public void playSound(String var1, double var2, double var4, double var6, float var8, float var9) { }
@@ -57,8 +48,22 @@ public class CameraCraftWorldAccess implements IWorldAccess {
 	}
 
 	@Override
-	public void func_82746_a(int var1, int var2, int var3, int var4, int var5) { }
+	public void func_85102_a(EntityPlayer var1, String var2, double var3, double var5, double var7, float var9, float var10) { }
 
 	@Override
-	public void func_85102_a(EntityPlayer var1, String var2, double var3, double var5, double var7, float var9, float var10) { }
+	public void markBlockForUpdate(int var1, int var2, int var3) {
+	}
+
+	@Override
+	public void markBlockForRenderUpdate(int var1, int var2, int var3) {
+	}
+
+	@Override
+	public void markBlockRangeForRenderUpdate(int var1, int var2, int var3, int var4, int var5, int var6) {
+		
+	}
+
+	@Override
+	public void broadcastSound(int var1, int var2, int var3, int var4, int var5) {
+	}
 }

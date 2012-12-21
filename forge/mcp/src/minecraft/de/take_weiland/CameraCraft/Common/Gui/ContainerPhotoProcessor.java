@@ -1,20 +1,11 @@
 package de.take_weiland.CameraCraft.Common.Gui;
 
-import java.util.Iterator;
-
-import cpw.mods.fml.common.Side;
-import cpw.mods.fml.common.asm.SideOnly;
-
+import net.minecraft.entity.player.InventoryPlayer;
+import net.minecraft.item.Item;
 import de.take_weiland.CameraCraft.Common.Inventory.InventoryHelper;
 import de.take_weiland.CameraCraft.Common.Inventory.SlotForItem;
 import de.take_weiland.CameraCraft.Common.Items.CameraCraftItem;
 import de.take_weiland.CameraCraft.Common.TileEntities.TileEntityPhotoProcessor;
-import net.minecraft.src.EntityPlayer;
-import net.minecraft.src.ICrafting;
-import net.minecraft.src.InventoryPlayer;
-import net.minecraft.src.Item;
-import net.minecraft.src.ItemStack;
-import net.minecraft.src.Slot;
 
 public class ContainerPhotoProcessor extends GenericContainer {
 	private int lastProcessTime = -1;

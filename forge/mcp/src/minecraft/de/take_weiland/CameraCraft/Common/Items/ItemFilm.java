@@ -2,21 +2,12 @@ package de.take_weiland.CameraCraft.Common.Items;
 
 import java.util.List;
 
-import cpw.mods.fml.common.Side;
-import cpw.mods.fml.common.asm.SideOnly;
-
-import de.take_weiland.CameraCraft.Common.PhotoInformation;
-
-import net.minecraft.src.CreativeTabs;
-import net.minecraft.src.EntityPlayer;
-import net.minecraft.src.Item;
-import net.minecraft.src.ItemStack;
-import net.minecraft.src.NBTTagCompound;
-import net.minecraft.src.NBTTagList;
-import net.minecraft.src.PotionEffect;
-import net.minecraft.src.PotionHelper;
-import net.minecraft.src.StatCollector;
-import net.minecraft.src.StringTranslate;
+import net.minecraft.creativetab.CreativeTabs;
+import net.minecraft.entity.player.EntityPlayer;
+import net.minecraft.item.ItemStack;
+import net.minecraft.util.StringTranslate;
+import cpw.mods.fml.relauncher.Side;
+import cpw.mods.fml.relauncher.SideOnly;
 
 public class ItemFilm extends ItemPhotoStorage {
 

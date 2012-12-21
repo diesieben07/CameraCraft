@@ -1,9 +1,9 @@
 package de.take_weiland.CameraCraft.Common.Blocks;
 
+import net.minecraft.block.material.Material;
+import net.minecraft.tileentity.TileEntity;
+import net.minecraft.world.World;
 import de.take_weiland.CameraCraft.Common.TileEntities.TileEntityTeleporatationEnabler;
-import net.minecraft.src.Material;
-import net.minecraft.src.TileEntity;
-import net.minecraft.src.World;
 
 public class BlockTeleportationEnabler extends CameraCraftBlock {
 

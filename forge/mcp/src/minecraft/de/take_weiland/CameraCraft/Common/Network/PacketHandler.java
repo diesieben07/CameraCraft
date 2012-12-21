@@ -1,45 +1,33 @@
 package de.take_weiland.CameraCraft.Common.Network;
 
-import java.awt.image.BufferedImage;
-import java.io.File;
 import java.nio.ByteBuffer;
 import java.util.Arrays;
 import java.util.HashMap;
 
+import net.minecraft.entity.player.EntityPlayer;
+import net.minecraft.item.ItemStack;
+import net.minecraft.network.INetworkManager;
+import net.minecraft.network.packet.Packet250CustomPayload;
+import net.minecraft.util.StringTranslate;
+
 import com.google.common.io.ByteArrayDataInput;
 import com.google.common.io.ByteArrayDataOutput;
 
-import net.minecraft.server.MinecraftServer;
-import net.minecraft.src.Entity;
-import net.minecraft.src.EntityPlayer;
-import net.minecraft.src.EntityPlayerMP;
-import net.minecraft.src.INetworkManager;
-import net.minecraft.src.ItemStack;
-import net.minecraft.src.Packet250CustomPayload;
-import net.minecraft.src.StringTranslate;
 import cpw.mods.fml.common.FMLCommonHandler;
-import cpw.mods.fml.common.Side;
 import cpw.mods.fml.common.network.IPacketHandler;
 import cpw.mods.fml.common.network.PacketDispatcher;
 import cpw.mods.fml.common.network.Player;
 import de.take_weiland.CameraCraft.Common.CameraCraft;
-import de.take_weiland.CameraCraft.Common.CameraType;
 import de.take_weiland.CameraCraft.Common.IPhotoSource;
 import de.take_weiland.CameraCraft.Common.PhotoInformation;
 import de.take_weiland.CameraCraft.Common.PhotoSizeAmountInfo;
 import de.take_weiland.CameraCraft.Common.Blocks.CameraCraftBlock;
-import de.take_weiland.CameraCraft.Common.Entities.EntityCamera;
-import de.take_weiland.CameraCraft.Common.Gui.GenericContainer;
-import de.take_weiland.CameraCraft.Common.Gui.ContainerCamera;
-import de.take_weiland.CameraCraft.Common.Gui.ContainerPhotoStation;
 import de.take_weiland.CameraCraft.Common.Gui.ContainerViewPhotos;
-import de.take_weiland.CameraCraft.Common.Gui.GuiScreens;
+import de.take_weiland.CameraCraft.Common.Gui.GenericContainer;
 import de.take_weiland.CameraCraft.Common.Items.ItemCamera;
 import de.take_weiland.CameraCraft.Common.Items.ItemPhoto;
-import de.take_weiland.CameraCraft.Common.Items.ItemPhotoStorage;
 import de.take_weiland.CameraCraft.Common.Recipes.CameraCraftRecipes;
 import de.take_weiland.CameraCraft.Common.TileEntities.TileEntityCamera;
-import de.take_weiland.CameraCraft.Common.TileEntities.TileEntityPhotoStation;
 
 public class PacketHandler implements IPacketHandler {
 	
@@ -157,9 +145,8 @@ public class PacketHandler implements IPacketHandler {
 		
 		case REQUEST_VIEW_PHOTOS:
 			int windowId = data.readInt();
-			System.out.println("received " + windowId + " expected " + playerEntity.craftingInventory.windowId);
-			if (playerEntity.craftingInventory.windowId == windowId && playerEntity.craftingInventory instanceof GenericContainer) {
-				GenericContainer container = (GenericContainer)playerEntity.craftingInventory;
+			if (playerEntity.openContainer.windowId == windowId && playerEntity.openContainer instanceof GenericContainer) {
+				GenericContainer container = (GenericContainer)playerEntity.openContainer;
 				if (container.getUpperInventory() instanceof IPhotoSource) {
 					IPhotoSource source = (IPhotoSource)container.getUpperInventory();
 					if (source.canViewPhotos(playerEntity)) {
@@ -173,8 +160,8 @@ public class PacketHandler implements IPacketHandler {
 			windowId = data.readInt();
 			int photoIndex = data.readByte();
 			String newName = data.readUTF();
-			if (playerEntity.craftingInventory.windowId == windowId && playerEntity.craftingInventory instanceof ContainerViewPhotos) {
-				ContainerViewPhotos container = (ContainerViewPhotos)playerEntity.craftingInventory;
+			if (playerEntity.openContainer.windowId == windowId && playerEntity.openContainer instanceof ContainerViewPhotos) {
+				ContainerViewPhotos container = (ContainerViewPhotos)playerEntity.openContainer;
 				container.getSource().nameChanged(photoIndex, newName);
 			}
 			break;
@@ -187,8 +174,8 @@ public class PacketHandler implements IPacketHandler {
 				amountInfo[i] = PhotoSizeAmountInfo.createFrom(data);
 			}
 			
-			if (playerEntity.craftingInventory instanceof ContainerViewPhotos && playerEntity.craftingInventory.windowId == windowId) {
-				ContainerViewPhotos container = (ContainerViewPhotos)playerEntity.craftingInventory;
+			if (playerEntity.openContainer instanceof ContainerViewPhotos && playerEntity.openContainer.windowId == windowId) {
+				ContainerViewPhotos container = (ContainerViewPhotos)playerEntity.openContainer;
 				if (container.getSource().canPrint()) {
 					container.getSource().addToPrintQueue(Arrays.asList(amountInfo));
 					playerEntity.closeScreen();
@@ -199,8 +186,8 @@ public class PacketHandler implements IPacketHandler {
 		case REQUEST_TELEPORT:
 			windowId = data.readInt();
 			photoIndex = data.readByte();
-			if (playerEntity.craftingInventory.windowId == windowId && playerEntity.craftingInventory instanceof ContainerViewPhotos) {
-				ContainerViewPhotos container = (ContainerViewPhotos)playerEntity.craftingInventory;
+			if (playerEntity.openContainer.windowId == windowId && playerEntity.openContainer instanceof ContainerViewPhotos) {
+				ContainerViewPhotos container = (ContainerViewPhotos)playerEntity.openContainer;
 				PhotoInformation info = container.getSource().getPhotoInformation(photoIndex);
 				if (info != null) {
 					info.teleport(playerEntity);
@@ -222,8 +209,8 @@ public class PacketHandler implements IPacketHandler {
 		case REQUEST_DELETE:
 			windowId = data.readInt();
 			photoIndex = data.readByte();
-			if (playerEntity.craftingInventory instanceof ContainerViewPhotos && playerEntity.craftingInventory.windowId == windowId) {
-				ContainerViewPhotos container = (ContainerViewPhotos)playerEntity.craftingInventory;
+			if (playerEntity.openContainer instanceof ContainerViewPhotos && playerEntity.openContainer.windowId == windowId) {
+				ContainerViewPhotos container = (ContainerViewPhotos)playerEntity.openContainer;
 				if (container.getSource().canDelete()) {
 					container.getSource().deletePhoto(photoIndex);
 					if (container.getSource().numPhotos() == 0) {

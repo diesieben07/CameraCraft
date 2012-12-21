@@ -1,17 +1,15 @@
 package de.take_weiland.CameraCraft.Common.Items;
 
-import java.util.Collection;
 import java.util.List;
 
-import cpw.mods.fml.common.Side;
-import cpw.mods.fml.common.asm.SideOnly;
+import net.minecraft.entity.player.EntityPlayer;
+import net.minecraft.item.ItemStack;
+import net.minecraft.nbt.NBTTagCompound;
+import net.minecraft.nbt.NBTTagList;
+import net.minecraft.util.StringTranslate;
+import cpw.mods.fml.relauncher.Side;
+import cpw.mods.fml.relauncher.SideOnly;
 import de.take_weiland.CameraCraft.Common.PhotoInformation;
-import de.take_weiland.CameraCraft.Common.Gui.ContainerPhotoStation;
-import net.minecraft.src.EntityPlayer;
-import net.minecraft.src.ItemStack;
-import net.minecraft.src.NBTTagCompound;
-import net.minecraft.src.NBTTagList;
-import net.minecraft.src.StringTranslate;
 
 public abstract class ItemPhotoStorage extends CameraCraftItem {
 

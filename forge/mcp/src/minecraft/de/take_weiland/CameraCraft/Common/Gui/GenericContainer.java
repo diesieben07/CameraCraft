@@ -1,21 +1,15 @@
 package de.take_weiland.CameraCraft.Common.Gui;
 
-import java.util.ArrayList;
-import java.util.List;
-
-import cpw.mods.fml.common.Side;
-import cpw.mods.fml.common.asm.SideOnly;
-import de.take_weiland.CameraCraft.Common.CameraCraft;
+import net.minecraft.entity.player.EntityPlayer;
+import net.minecraft.entity.player.InventoryPlayer;
+import net.minecraft.inventory.Container;
+import net.minecraft.inventory.ICrafting;
+import net.minecraft.inventory.IInventory;
+import net.minecraft.inventory.Slot;
+import net.minecraft.item.ItemStack;
+import cpw.mods.fml.relauncher.Side;
+import cpw.mods.fml.relauncher.SideOnly;
 import de.take_weiland.CameraCraft.Common.Inventory.IProgressInventory;
-import net.minecraft.src.Container;
-import net.minecraft.src.EntityPlayer;
-import net.minecraft.src.ICrafting;
-import net.minecraft.src.IInventory;
-import net.minecraft.src.InventoryPlayer;
-import net.minecraft.src.Item;
-import net.minecraft.src.ItemArmor;
-import net.minecraft.src.ItemStack;
-import net.minecraft.src.Slot;
 
 public abstract class GenericContainer extends Container {
 	
@@ -58,12 +52,12 @@ public abstract class GenericContainer extends Container {
 			for (Object crafter : crafters) {
 	        	ICrafting iCraftingCrafter = (ICrafting)crafter;
 	        	if (lastProcessTime != progressInventory.getProcessTime()) {
-	        		iCraftingCrafter.updateCraftingInventoryInfo(this, 0, progressInventory.getProcessTime());
+	        		iCraftingCrafter.sendProgressBarUpdate(this, 0, progressInventory.getProcessTime());
 	        		lastProcessTime = progressInventory.getProcessTime();
 	        	}
 	        	
 	        	if (lastDuration != progressInventory.getProcessDuration()) {
-	        		iCraftingCrafter.updateCraftingInventoryInfo(this, 1, progressInventory.getProcessDuration());
+	        		iCraftingCrafter.sendProgressBarUpdate(this, 1, progressInventory.getProcessDuration());
 	        		lastDuration = progressInventory.getProcessDuration();
 	        	}
 	        }
@@ -91,8 +85,8 @@ public abstract class GenericContainer extends Container {
 		super.addCraftingToCrafters(crafter);
 		if (upperInventory != null && upperInventory instanceof IProgressInventory) {
 			IProgressInventory progressInventory = (IProgressInventory)upperInventory;
-	        crafter.updateCraftingInventoryInfo(this, 0, progressInventory.getProcessTime());
-	        crafter.updateCraftingInventoryInfo(this, 1, progressInventory.getProcessDuration());
+	        crafter.sendProgressBarUpdate(this, 0, progressInventory.getProcessTime());
+	        crafter.sendProgressBarUpdate(this, 1, progressInventory.getProcessDuration());
 		}
     }
 	

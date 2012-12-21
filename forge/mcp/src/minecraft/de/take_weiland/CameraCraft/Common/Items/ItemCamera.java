@@ -3,32 +3,30 @@ package de.take_weiland.CameraCraft.Common.Items;
 import java.util.HashMap;
 import java.util.List;
 
+import net.minecraft.block.Block;
+import net.minecraft.creativetab.CreativeTabs;
+import net.minecraft.entity.player.EntityPlayer;
+import net.minecraft.item.ItemStack;
+import net.minecraft.util.MathHelper;
+import net.minecraft.util.StringTranslate;
+import net.minecraft.world.World;
+
 import com.google.common.io.ByteArrayDataOutput;
 
 import cpw.mods.fml.common.network.PacketDispatcher;
 import cpw.mods.fml.common.network.Player;
-
-import net.minecraft.src.Block;
-import net.minecraft.src.CreativeTabs;
-import net.minecraft.src.EntityPlayer;
-import net.minecraft.src.Item;
-import net.minecraft.src.ItemStack;
-import net.minecraft.src.MathHelper;
-import net.minecraft.src.StringTranslate;
-import net.minecraft.src.World;
-import de.take_weiland.CameraCraft.Common.CameraCraft;
 import de.take_weiland.CameraCraft.Common.Achievements;
+import de.take_weiland.CameraCraft.Common.CameraCraft;
 import de.take_weiland.CameraCraft.Common.CameraType;
 import de.take_weiland.CameraCraft.Common.ConfigurationManager;
-import de.take_weiland.CameraCraft.Common.PhotoInformation;
 import de.take_weiland.CameraCraft.Common.Blocks.BlockCamera;
 import de.take_weiland.CameraCraft.Common.Blocks.CameraCraftBlock;
 import de.take_weiland.CameraCraft.Common.Entities.EntityCamera;
 import de.take_weiland.CameraCraft.Common.Gui.GuiScreens;
 import de.take_weiland.CameraCraft.Common.Inventory.InventoryCamera;
 import de.take_weiland.CameraCraft.Common.Inventory.InventoryCameraHotbar;
-import de.take_weiland.CameraCraft.Common.Network.PacketHelper;
 import de.take_weiland.CameraCraft.Common.Network.NetAction;
+import de.take_weiland.CameraCraft.Common.Network.PacketHelper;
 import de.take_weiland.CameraCraft.Common.TileEntities.TileEntityCamera;
 
 public class ItemCamera extends CameraCraftItem {
@@ -70,7 +68,7 @@ public class ItemCamera extends CameraCraftItem {
             }
         }
 
-        if (!player.func_82247_a(x, y, z, side, itemStack) || itemStack.stackSize == 0) {
+        if (!player.canPlayerEdit(x, y, z, side, itemStack) || itemStack.stackSize == 0) {
             return false;
         } else {
         	if (CameraCraftBlock.cameraPlaced.canPlaceBlockAt(world, x, y, z)) {

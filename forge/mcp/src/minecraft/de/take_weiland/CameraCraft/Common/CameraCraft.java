@@ -3,21 +3,16 @@ package de.take_weiland.CameraCraft.Common;
 import java.util.Arrays;
 import java.util.logging.Logger;
 
-import net.minecraft.src.CreativeTabs;
-import net.minecraft.src.EntityPlayer;
-import net.minecraft.src.Item;
-import net.minecraft.src.ItemStack;
-import net.minecraft.src.StringTranslate;
+import net.minecraft.creativetab.CreativeTabs;
 import net.minecraftforge.common.Configuration;
 import cpw.mods.fml.common.FMLCommonHandler;
 import cpw.mods.fml.common.FMLLog;
 import cpw.mods.fml.common.Mod;
-import cpw.mods.fml.common.ModMetadata;
 import cpw.mods.fml.common.Mod.Init;
 import cpw.mods.fml.common.Mod.Instance;
 import cpw.mods.fml.common.Mod.PostInit;
 import cpw.mods.fml.common.Mod.PreInit;
-import cpw.mods.fml.common.Side;
+import cpw.mods.fml.common.ModMetadata;
 import cpw.mods.fml.common.SidedProxy;
 import cpw.mods.fml.common.event.FMLInitializationEvent;
 import cpw.mods.fml.common.event.FMLPostInitializationEvent;
@@ -27,22 +22,24 @@ import cpw.mods.fml.common.network.NetworkRegistry;
 import cpw.mods.fml.common.registry.EntityRegistry;
 import cpw.mods.fml.common.registry.GameRegistry;
 import cpw.mods.fml.common.registry.TickRegistry;
-import de.take_weiland.CameraCraft.Client.PhotoSizeInfo;
+import cpw.mods.fml.relauncher.Side;
 import de.take_weiland.CameraCraft.Common.Blocks.CameraCraftBlock;
 import de.take_weiland.CameraCraft.Common.Entities.EntityCamera;
 import de.take_weiland.CameraCraft.Common.Entities.EntityPhoto;
 import de.take_weiland.CameraCraft.Common.Gui.GuiHandler;
-import de.take_weiland.CameraCraft.Common.Network.PacketHandler;
 import de.take_weiland.CameraCraft.Common.Network.ConnectionHandler;
+import de.take_weiland.CameraCraft.Common.Network.PacketHandler;
 import de.take_weiland.CameraCraft.Common.Recipes.CameraCraftRecipes;
 
-@Mod(modid = "CameraCraft", version = "2.2.2", name = "CameraCraft")
-@NetworkMod(versionBounds = "[2.2.2]", channels = { "CameraCraft" }, packetHandler = PacketHandler.class, connectionHandler = ConnectionHandler.class, clientSideRequired = true, serverSideRequired = false)
+@Mod(modid = "CameraCraft", version = "2.3", name = "CameraCraft")
+@NetworkMod(versionBounds = "[2.3]", channels = { "CameraCraft" }, packetHandler = PacketHandler.class, connectionHandler = ConnectionHandler.class, clientSideRequired = true, serverSideRequired = false)
 public class CameraCraft {
 	
 	public static CreativeTabs theCreativeTab;
 	
 	public static Configuration conf;
+	
+	public static final String VERSION = "2.3";
 	
 	@Instance
 	public static CameraCraft instance;
@@ -58,7 +55,7 @@ public class CameraCraft {
 		logger.setParent(FMLLog.getLogger());
 		logger.setUseParentHandlers(true);
 		
-		logger.info("Version " + evt.getModMetadata().version + " preInitializing... (c) 2012 by Take Weiland (diesieben07)");
+		logger.info("Version " + VERSION + " preInitializing... (c) 2012 by Take Weiland (diesieben07)");
 		
 		ModMetadata metadata = evt.getModMetadata();
 		metadata.authorList = Arrays.asList("Take Weiland (diesieben07)");

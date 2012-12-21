@@ -1,11 +1,7 @@
 package de.take_weiland.CameraCraft.Common;
 
-import net.minecraft.src.NBTTagCompound;
-
 import com.google.common.io.ByteArrayDataInput;
 import com.google.common.io.ByteArrayDataOutput;
-
-import de.take_weiland.CameraCraft.Common.Network.PacketHelper;
 
 public class PhotoSizeAmountInfo {
 	private int sizeX;

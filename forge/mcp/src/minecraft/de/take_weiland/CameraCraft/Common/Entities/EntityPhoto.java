@@ -1,14 +1,23 @@
 package de.take_weiland.CameraCraft.Common.Entities;
 
-import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
+
+import net.minecraft.block.material.Material;
+import net.minecraft.entity.Entity;
+import net.minecraft.entity.item.EntityItem;
+import net.minecraft.entity.player.EntityPlayer;
+import net.minecraft.entity.player.EntityPlayerMP;
+import net.minecraft.item.ItemStack;
+import net.minecraft.nbt.NBTTagCompound;
+import net.minecraft.util.DamageSource;
+import net.minecraft.util.MathHelper;
+import net.minecraft.world.World;
 
 import com.google.common.io.ByteArrayDataInput;
 import com.google.common.io.ByteArrayDataOutput;
 
 import cpw.mods.fml.common.registry.IEntityAdditionalSpawnData;
-
 import de.take_weiland.CameraCraft.Common.CameraCraft;
 import de.take_weiland.CameraCraft.Common.IPhotoSource;
 import de.take_weiland.CameraCraft.Common.PhotoInformation;
@@ -16,17 +25,6 @@ import de.take_weiland.CameraCraft.Common.PhotoSizeAmountInfo;
 import de.take_weiland.CameraCraft.Common.Gui.GuiScreens;
 import de.take_weiland.CameraCraft.Common.Items.CameraCraftItem;
 import de.take_weiland.CameraCraft.Common.Items.ItemPhotoStorage;
-
-import net.minecraft.src.DamageSource;
-import net.minecraft.src.Entity;
-import net.minecraft.src.EntityItem;
-import net.minecraft.src.EntityPlayer;
-import net.minecraft.src.EntityPlayerMP;
-import net.minecraft.src.ItemStack;
-import net.minecraft.src.Material;
-import net.minecraft.src.MathHelper;
-import net.minecraft.src.NBTTagCompound;
-import net.minecraft.src.World;
 
 public class EntityPhoto extends Entity implements IEntityAdditionalSpawnData, IPhotoSource {
     private int tickCounter1;

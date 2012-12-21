@@ -1,29 +1,22 @@
 package de.take_weiland.CameraCraft.Client;
 
 import java.util.EnumSet;
-import java.util.List;
-import java.util.Random;
+
+import net.minecraft.client.Minecraft;
+import net.minecraft.client.settings.KeyBinding;
+import net.minecraft.network.packet.Packet250CustomPayload;
 
 import org.lwjgl.input.Keyboard;
 
 import com.google.common.io.ByteArrayDataOutput;
 
-import net.minecraft.client.Minecraft;
-import net.minecraft.src.Entity;
-import net.minecraft.src.EntityLiving;
-import net.minecraft.src.EntityPlayer;
-import net.minecraft.src.KeyBinding;
-import net.minecraft.src.Packet250CustomPayload;
-
 import cpw.mods.fml.client.FMLClientHandler;
 import cpw.mods.fml.client.registry.KeyBindingRegistry.KeyHandler;
 import cpw.mods.fml.common.TickType;
 import cpw.mods.fml.common.network.PacketDispatcher;
-import cpw.mods.fml.common.network.Player;
-import de.take_weiland.CameraCraft.Common.CameraCraft;
 import de.take_weiland.CameraCraft.Common.Items.ItemCamera;
-import de.take_weiland.CameraCraft.Common.Network.PacketHelper;
 import de.take_weiland.CameraCraft.Common.Network.NetAction;
+import de.take_weiland.CameraCraft.Common.Network.PacketHelper;
 
 public class CameraCraftKeyHandler extends KeyHandler {
 

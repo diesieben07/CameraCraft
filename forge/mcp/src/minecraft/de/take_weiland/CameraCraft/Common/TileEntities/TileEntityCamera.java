@@ -1,28 +1,16 @@
 package de.take_weiland.CameraCraft.Common.TileEntities;
 
-import java.util.List;
-
-import de.take_weiland.CameraCraft.Common.CameraType;
-import de.take_weiland.CameraCraft.Common.IPhotoSource;
-import de.take_weiland.CameraCraft.Common.PhotoInformation;
-import de.take_weiland.CameraCraft.Common.PhotoSizeAmountInfo;
-import de.take_weiland.CameraCraft.Common.Entities.EntityCamera;
-import de.take_weiland.CameraCraft.Common.Gui.GuiScreens;
+import net.minecraft.entity.player.EntityPlayer;
+import net.minecraft.item.ItemStack;
+import net.minecraft.nbt.NBTTagCompound;
+import net.minecraft.network.INetworkManager;
+import net.minecraft.network.packet.Packet;
+import net.minecraft.network.packet.Packet132TileEntityData;
+import net.minecraft.tileentity.TileEntity;
+import net.minecraft.util.StringTranslate;
 import de.take_weiland.CameraCraft.Common.Inventory.InventoryCamera;
 import de.take_weiland.CameraCraft.Common.Inventory.InventoryCameraTileEntity;
 import de.take_weiland.CameraCraft.Common.Items.CameraCraftItem;
-import de.take_weiland.CameraCraft.Common.Items.ItemCamera;
-import net.minecraft.src.AxisAlignedBB;
-import net.minecraft.src.Entity;
-import net.minecraft.src.EntityPlayer;
-import net.minecraft.src.IInventory;
-import net.minecraft.src.INetworkManager;
-import net.minecraft.src.ItemStack;
-import net.minecraft.src.NBTTagCompound;
-import net.minecraft.src.Packet;
-import net.minecraft.src.Packet132TileEntityData;
-import net.minecraft.src.StringTranslate;
-import net.minecraft.src.TileEntity;
 
 public class TileEntityCamera extends TileEntity {
 	private String owner;

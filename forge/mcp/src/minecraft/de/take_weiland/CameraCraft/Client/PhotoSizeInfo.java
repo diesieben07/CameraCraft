@@ -1,7 +1,6 @@
 package de.take_weiland.CameraCraft.Client;
 
 import de.take_weiland.CameraCraft.Common.PhotoInformation;
-import de.take_weiland.CameraCraft.Common.PhotoSizeAmountInfo;
 
 public class PhotoSizeInfo {
 	private byte sizeX = 4;

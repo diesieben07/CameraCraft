@@ -1,13 +1,11 @@
 package de.take_weiland.CameraCraft.Common.Gui;
 
+import net.minecraft.entity.player.InventoryPlayer;
+import net.minecraft.item.Item;
 import de.take_weiland.CameraCraft.Common.Inventory.InventoryHelper;
 import de.take_weiland.CameraCraft.Common.Inventory.SlotForItem;
 import de.take_weiland.CameraCraft.Common.Items.CameraCraftItem;
 import de.take_weiland.CameraCraft.Common.TileEntities.TileEntityPhotoStation;
-import net.minecraft.src.EntityPlayer;
-import net.minecraft.src.ICrafting;
-import net.minecraft.src.InventoryPlayer;
-import net.minecraft.src.Item;
 
 public class ContainerPhotoStation extends GenericContainer {
 	

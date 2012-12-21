@@ -1,7 +1,7 @@
 package de.take_weiland.CameraCraft.Client.Gui;
 
 import net.minecraft.client.Minecraft;
-import net.minecraft.src.GuiButton;
+import net.minecraft.client.gui.GuiButton;
 
 import org.lwjgl.opengl.GL11;
 

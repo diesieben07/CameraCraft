@@ -1,6 +1,5 @@
 package de.take_weiland.CameraCraft.Common;
 
-import net.minecraft.src.Slot;
 
 public enum CameraType {
 	

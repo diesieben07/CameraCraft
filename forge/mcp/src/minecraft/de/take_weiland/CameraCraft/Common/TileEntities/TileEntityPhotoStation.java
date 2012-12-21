@@ -1,43 +1,29 @@
 package de.take_weiland.CameraCraft.Common.TileEntities;
 
 import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.List;
 
-import com.google.common.io.ByteArrayDataOutput;
-
-import cpw.mods.fml.common.FMLCommonHandler;
-import cpw.mods.fml.common.network.PacketDispatcher;
-
-import de.take_weiland.CameraCraft.Client.CameraCraftClientEventHandler;
-import de.take_weiland.CameraCraft.Common.CameraCraft;
-import de.take_weiland.CameraCraft.Common.CommonTickHandler;
+import net.minecraft.block.Block;
+import net.minecraft.entity.player.EntityPlayer;
+import net.minecraft.inventory.IInventory;
+import net.minecraft.inventory.InventoryLargeChest;
+import net.minecraft.item.Item;
+import net.minecraft.item.ItemStack;
+import net.minecraft.nbt.NBTTagCompound;
+import net.minecraft.nbt.NBTTagList;
+import net.minecraft.network.INetworkManager;
+import net.minecraft.network.packet.Packet;
+import net.minecraft.network.packet.Packet132TileEntityData;
+import net.minecraft.tileentity.TileEntityChest;
 import de.take_weiland.CameraCraft.Common.IPhotoSource;
 import de.take_weiland.CameraCraft.Common.PhotoInformation;
 import de.take_weiland.CameraCraft.Common.PhotoSizeAmountInfo;
-import de.take_weiland.CameraCraft.Common.Blocks.CameraCraftBlock;
 import de.take_weiland.CameraCraft.Common.Gui.GuiScreens;
 import de.take_weiland.CameraCraft.Common.Inventory.IProgressInventory;
 import de.take_weiland.CameraCraft.Common.Inventory.InventoryHelper;
 import de.take_weiland.CameraCraft.Common.Inventory.InventoryHelper.InventorySearchInfo;
 import de.take_weiland.CameraCraft.Common.Items.CameraCraftItem;
 import de.take_weiland.CameraCraft.Common.Items.ItemPhotoStorage;
-import de.take_weiland.CameraCraft.Common.Network.PacketHelper;
-import de.take_weiland.CameraCraft.Common.Network.NetAction;
-import net.minecraft.src.Block;
-import net.minecraft.src.EntityPlayer;
-import net.minecraft.src.IInventory;
-import net.minecraft.src.INetworkManager;
-import net.minecraft.src.InventoryLargeChest;
-import net.minecraft.src.Item;
-import net.minecraft.src.ItemStack;
-import net.minecraft.src.NBTTagCompound;
-import net.minecraft.src.NBTTagList;
-import net.minecraft.src.Packet;
-import net.minecraft.src.Packet132TileEntityData;
-import net.minecraft.src.TileEntityChest;
-import net.minecraft.src.WorldServer;
-import net.minecraftforge.common.MinecraftForge;
 
 public class TileEntityPhotoStation extends TileEntityInventory implements IProgressInventory, IPhotoSource {
 
@@ -222,7 +208,7 @@ public class TileEntityPhotoStation extends TileEntityInventory implements IProg
 	@Override
 	public void startViewing(EntityPlayer player) {
 		viewingPlayer = player.username;
-		worldObj.markBlockNeedsUpdate(xCoord, yCoord, zCoord);
+		worldObj.markBlockForUpdate(xCoord, yCoord, zCoord);
 	}
 	
 	@Override
@@ -230,7 +216,7 @@ public class TileEntityPhotoStation extends TileEntityInventory implements IProg
 		if (player.username.equals(viewingPlayer)) {
 			viewingPlayer = null;
 		}
-		worldObj.markBlockNeedsUpdate(xCoord, yCoord, zCoord);
+		worldObj.markBlockForUpdate(xCoord, yCoord, zCoord);
 	}
 	
 	@Override

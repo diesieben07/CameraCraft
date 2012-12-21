@@ -2,14 +2,13 @@ package de.take_weiland.CameraCraft.Client;
 
 import java.awt.Graphics2D;
 import java.awt.image.BufferedImage;
-import java.awt.image.ImageObserver;
 import java.io.IOException;
 import java.util.Random;
 
 import javax.imageio.ImageIO;
 
 import net.minecraft.client.Minecraft;
-import net.minecraft.src.RenderEngine;
+import net.minecraft.client.renderer.RenderEngine;
 
 import org.lwjgl.opengl.GL11;
 

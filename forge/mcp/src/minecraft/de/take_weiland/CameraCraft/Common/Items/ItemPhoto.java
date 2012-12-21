@@ -3,15 +3,14 @@ package de.take_weiland.CameraCraft.Common.Items;
 import java.io.File;
 import java.util.List;
 
-import cpw.mods.fml.common.Side;
-import cpw.mods.fml.common.asm.SideOnly;
-import net.minecraft.src.CreativeTabs;
-import net.minecraft.src.EntityPlayer;
-import net.minecraft.src.ItemStack;
-import net.minecraft.src.StringTranslate;
-import net.minecraft.src.World;
-import de.take_weiland.CameraCraft.Common.CameraCraft;
+import net.minecraft.entity.player.EntityPlayer;
+import net.minecraft.item.ItemStack;
+import net.minecraft.util.StringTranslate;
+import net.minecraft.world.World;
+import cpw.mods.fml.relauncher.Side;
+import cpw.mods.fml.relauncher.SideOnly;
 import de.take_weiland.CameraCraft.Common.Achievements;
+import de.take_weiland.CameraCraft.Common.CameraCraft;
 import de.take_weiland.CameraCraft.Common.PhotoInformation;
 import de.take_weiland.CameraCraft.Common.Entities.EntityPhoto;
 import de.take_weiland.CameraCraft.Common.Gui.GuiScreens;
@@ -27,7 +26,7 @@ public class ItemPhoto extends ItemPhotoStorage {
 	@Override
 	public boolean onItemUse(ItemStack itemStack, EntityPlayer player, World world, int tileX, int tileY, int tileZ, int side, float par8, float par9, float par10) {
 
-		if (itemStack.getItemDamage() != 1 || !player.func_82247_a(tileX, tileY, tileZ, side, itemStack)) {
+		if (itemStack.getItemDamage() != 1 || !player.canPlayerEdit(tileX, tileY, tileZ, side, itemStack)) {
         	return false;
         } else {
         	byte direction = 0;

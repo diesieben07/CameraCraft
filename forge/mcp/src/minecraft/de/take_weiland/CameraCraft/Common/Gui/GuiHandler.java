@@ -1,20 +1,14 @@
 package de.take_weiland.CameraCraft.Common.Gui;
 
-import java.util.List;
-
-import net.minecraft.src.AxisAlignedBB;
-import net.minecraft.src.Container;
-import net.minecraft.src.Entity;
-import net.minecraft.src.EntityPlayer;
-import net.minecraft.src.ItemStack;
-import net.minecraft.src.ModLoader;
-import net.minecraft.src.StringTranslate;
-import net.minecraft.src.TileEntity;
-import net.minecraft.src.World;
+import net.minecraft.entity.Entity;
+import net.minecraft.entity.player.EntityPlayer;
+import net.minecraft.item.ItemStack;
+import net.minecraft.tileentity.TileEntity;
+import net.minecraft.util.StringTranslate;
+import net.minecraft.world.World;
 import cpw.mods.fml.common.FMLCommonHandler;
 import cpw.mods.fml.common.network.IGuiHandler;
 import de.take_weiland.CameraCraft.Common.CameraCraft;
-import de.take_weiland.CameraCraft.Common.CameraType;
 import de.take_weiland.CameraCraft.Common.IPhotoSource;
 import de.take_weiland.CameraCraft.Common.PhotoSourcePhotoInHotbar;
 import de.take_weiland.CameraCraft.Common.Inventory.InventoryCamera;
@@ -47,7 +41,6 @@ public class GuiHandler implements IGuiHandler {
 			ContainerPhotoStation container = new ContainerPhotoStation(tileEntity, player.inventory);
 			return container;
 		case VIEW_PHOTOS_CURRENT_ITEM:
-			System.out.println("opening current item "+ FMLCommonHandler.instance().getEffectiveSide());
 			IPhotoSource source = currentItem.getItem() instanceof ItemCamera ? ItemCamera.getInventory(currentItem, player) : currentItem.getItem() instanceof ItemPhoto ? new PhotoSourcePhotoInHotbar(player) : null;
 			if (source != null && source.canViewPhotos(player)) {
 				source.startViewing(player);

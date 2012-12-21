@@ -1,19 +1,18 @@
 package de.take_weiland.CameraCraft.Client.Gui;
 
+import net.minecraft.client.gui.GuiButton;
+import net.minecraft.util.StringTranslate;
+
 import com.google.common.io.ByteArrayDataOutput;
 
 import cpw.mods.fml.common.network.PacketDispatcher;
-
-import net.minecraft.src.GuiButton;
-import net.minecraft.src.StringTranslate;
 import de.take_weiland.CameraCraft.Common.CameraType;
 import de.take_weiland.CameraCraft.Common.PhotoInformation;
 import de.take_weiland.CameraCraft.Common.Gui.ContainerCamera;
-import de.take_weiland.CameraCraft.Common.Gui.GuiScreens;
 import de.take_weiland.CameraCraft.Common.Inventory.InventoryCamera;
 import de.take_weiland.CameraCraft.Common.Items.ItemPhotoStorage;
-import de.take_weiland.CameraCraft.Common.Network.PacketHelper;
 import de.take_weiland.CameraCraft.Common.Network.NetAction;
+import de.take_weiland.CameraCraft.Common.Network.PacketHelper;
 import de.take_weiland.CameraCraft.Common.TileEntities.TileEntityCamera;
 
 public class GuiContainerCamera extends GuiGenericContainer {
@@ -54,8 +53,7 @@ public class GuiContainerCamera extends GuiGenericContainer {
 			PhotoInformation[] infos = ItemPhotoStorage.getPhotosFromItemStack(inventorySlots.getSlot(0).getStack());
 			if (infos.length > 0) {
 				ByteArrayDataOutput output = PacketHelper.buildPacket(NetAction.REQUEST_VIEW_PHOTOS);
-				output.writeInt(mc.thePlayer.craftingInventory.windowId);
-				System.out.println("writing " + mc.thePlayer.craftingInventory.windowId);
+				output.writeInt(mc.thePlayer.openContainer.windowId);
 				PacketDispatcher.sendPacketToServer(PacketHelper.finishPacket(output));
 			}
 		}

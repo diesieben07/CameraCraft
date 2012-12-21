@@ -1,17 +1,10 @@
 package de.take_weiland.CameraCraft.Client.Gui;
 
+import net.minecraft.client.gui.GuiScreen;
+import net.minecraft.client.gui.GuiTextField;
+import net.minecraft.util.StringTranslate;
+
 import org.lwjgl.input.Keyboard;
-
-import com.google.common.io.ByteArrayDataOutput;
-
-import cpw.mods.fml.common.network.PacketDispatcher;
-
-import de.take_weiland.CameraCraft.Common.Network.PacketHelper;
-import de.take_weiland.CameraCraft.Common.Network.NetAction;
-
-import net.minecraft.src.GuiScreen;
-import net.minecraft.src.GuiTextField;
-import net.minecraft.src.StringTranslate;
 
 public class GuiRenamePhoto extends GuiScreen {
 	private final IRenamePhotoCallback callback;

@@ -1,45 +1,17 @@
 package de.take_weiland.CameraCraft.Common.Blocks;
 
 import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.List;
-import java.util.Random;
 
-import com.google.common.io.ByteArrayDataOutput;
-
-import cpw.mods.fml.client.FMLClientHandler;
-import cpw.mods.fml.client.registry.RenderingRegistry;
-import cpw.mods.fml.common.Side;
-import cpw.mods.fml.common.asm.SideOnly;
-import cpw.mods.fml.common.network.PacketDispatcher;
-import cpw.mods.fml.common.network.Player;
-
-import de.take_weiland.CameraCraft.Common.CameraCraft;
+import net.minecraft.block.material.Material;
+import net.minecraft.entity.EntityLiving;
+import net.minecraft.entity.player.EntityPlayer;
+import net.minecraft.item.ItemStack;
+import net.minecraft.tileentity.TileEntity;
+import net.minecraft.util.AxisAlignedBB;
+import net.minecraft.world.World;
 import de.take_weiland.CameraCraft.Common.Entities.EntityCamera;
-import de.take_weiland.CameraCraft.Common.Gui.GuiScreens;
-import de.take_weiland.CameraCraft.Common.Items.CameraCraftItem;
-import de.take_weiland.CameraCraft.Common.Items.ItemCamera;
-import de.take_weiland.CameraCraft.Common.Items.ItemPhoto;
-import de.take_weiland.CameraCraft.Common.Network.PacketHelper;
-import de.take_weiland.CameraCraft.Common.Network.NetAction;
 import de.take_weiland.CameraCraft.Common.TileEntities.TileEntityCamera;
-
-import net.minecraft.src.AxisAlignedBB;
-import net.minecraft.src.Entity;
-import net.minecraft.src.EntityItem;
-import net.minecraft.src.EntityLiving;
-import net.minecraft.src.EntityPig;
-import net.minecraft.src.EntityPlayer;
-import net.minecraft.src.EntityZombie;
-import net.minecraft.src.IBlockAccess;
-import net.minecraft.src.Item;
-import net.minecraft.src.ItemStack;
-import net.minecraft.src.Material;
-import net.minecraft.src.MovingObjectPosition;
-import net.minecraft.src.TileEntity;
-import net.minecraft.src.Vec3;
-import net.minecraft.src.World;
-import net.minecraftforge.common.ForgeDirection;
 
 public class BlockCamera extends CameraCraftBlock {
 

@@ -2,10 +2,10 @@ package de.take_weiland.CameraCraft.Common;
 
 import java.util.List;
 
-import net.minecraft.src.EntityPlayer;
+import net.minecraft.entity.player.EntityPlayer;
 import de.take_weiland.CameraCraft.Common.Gui.GuiScreens;
-import de.take_weiland.CameraCraft.Common.Items.ItemPhotoStorage;
 import de.take_weiland.CameraCraft.Common.Items.ItemPhoto;
+import de.take_weiland.CameraCraft.Common.Items.ItemPhotoStorage;
 
 public class PhotoSourcePhotoInHotbar implements IPhotoSource {
 

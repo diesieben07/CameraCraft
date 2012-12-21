@@ -1,20 +1,16 @@
 package de.take_weiland.CameraCraft.Client.Rendering;
 
-import java.awt.Graphics2D;
 import java.awt.image.BufferedImage;
 import java.util.HashMap;
 import java.util.Iterator;
 import java.util.Random;
 import java.util.concurrent.ConcurrentHashMap;
 
-import javax.imageio.ImageIO;
-
-import net.minecraft.src.Entity;
-import net.minecraft.src.IntHashMap;
-import net.minecraft.src.MathHelper;
-import net.minecraft.src.OpenGlHelper;
-import net.minecraft.src.Render;
-import net.minecraft.src.Tessellator;
+import net.minecraft.client.renderer.OpenGlHelper;
+import net.minecraft.client.renderer.Tessellator;
+import net.minecraft.client.renderer.entity.Render;
+import net.minecraft.entity.Entity;
+import net.minecraft.util.MathHelper;
 
 import org.lwjgl.opengl.GL11;
 import org.lwjgl.opengl.GL12;
@@ -23,14 +19,13 @@ import com.google.common.io.ByteArrayDataOutput;
 
 import cpw.mods.fml.client.FMLClientHandler;
 import cpw.mods.fml.common.network.PacketDispatcher;
-
 import de.take_weiland.CameraCraft.Client.PhotoSizeInfo;
 import de.take_weiland.CameraCraft.Client.Image.IImageResizeFinishedCallback;
 import de.take_weiland.CameraCraft.Client.Image.ThreadImageResize;
 import de.take_weiland.CameraCraft.Common.CameraCraft;
 import de.take_weiland.CameraCraft.Common.Entities.EntityPhoto;
-import de.take_weiland.CameraCraft.Common.Network.PacketHelper;
 import de.take_weiland.CameraCraft.Common.Network.NetAction;
+import de.take_weiland.CameraCraft.Common.Network.PacketHelper;
 
 public class RenderEntityPhoto extends Render
 {

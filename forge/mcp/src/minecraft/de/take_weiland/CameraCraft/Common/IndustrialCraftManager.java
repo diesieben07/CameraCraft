@@ -1,9 +1,10 @@
 package de.take_weiland.CameraCraft.Common;
 
+import static de.take_weiland.CameraCraft.Common.CameraCraft.logger;
+
 import java.lang.reflect.Method;
 
-import net.minecraft.src.ItemStack;
-import static de.take_weiland.CameraCraft.Common.CameraCraft.logger;
+import net.minecraft.item.ItemStack;
 
 public class IndustrialCraftManager {
 	public static boolean isICInstalled = false;

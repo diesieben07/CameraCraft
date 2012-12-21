@@ -1,22 +1,18 @@
 package de.take_weiland.CameraCraft.Common.Inventory;
 
-import java.util.ArrayList;
 import java.util.Random;
 
+import net.minecraft.entity.item.EntityItem;
+import net.minecraft.inventory.IInventory;
+import net.minecraft.inventory.InventoryCrafting;
+import net.minecraft.inventory.Slot;
+import net.minecraft.item.Item;
+import net.minecraft.item.ItemStack;
+import net.minecraft.nbt.NBTTagCompound;
+import net.minecraft.nbt.NBTTagList;
+import net.minecraft.tileentity.TileEntity;
+import net.minecraft.world.World;
 import de.take_weiland.CameraCraft.Common.Gui.GenericContainer;
-import de.take_weiland.CameraCraft.Common.Inventory.InventoryHelper.InventorySearchInfo;
-
-import net.minecraft.src.EntityItem;
-import net.minecraft.src.IInventory;
-import net.minecraft.src.InventoryCrafting;
-import net.minecraft.src.Item;
-import net.minecraft.src.ItemStack;
-import net.minecraft.src.NBTTagCompound;
-import net.minecraft.src.NBTTagList;
-import net.minecraft.src.Slot;
-import net.minecraft.src.TileEntity;
-import net.minecraft.src.TileEntityDispenser;
-import net.minecraft.src.World;
 
 public class InventoryHelper {
 	
@@ -134,7 +130,7 @@ public class InventoryHelper {
         			EntityItem entityItem = new EntityItem(world, (double)((float)x + var10), (double)((float)y + var11), (double)((float)z + var12), new ItemStack(currentDroppingStack.itemID, partialStackSize, currentDroppingStack.getItemDamage()));
 
         			if (currentDroppingStack.hasTagCompound()) {
-        				entityItem.item.setTagCompound((NBTTagCompound)currentDroppingStack.getTagCompound().copy());
+        				entityItem.func_92014_d().setTagCompound((NBTTagCompound)currentDroppingStack.getTagCompound().copy());
         			}
 
         			float motionMultiplier = 0.05F;

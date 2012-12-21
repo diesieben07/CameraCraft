@@ -1,11 +1,11 @@
 package de.take_weiland.CameraCraft.Common.TileEntities;
 
+import net.minecraft.entity.player.EntityPlayer;
+import net.minecraft.inventory.IInventory;
+import net.minecraft.item.ItemStack;
+import net.minecraft.nbt.NBTTagCompound;
+import net.minecraft.tileentity.TileEntity;
 import de.take_weiland.CameraCraft.Common.Inventory.InventoryHelper;
-import net.minecraft.src.EntityPlayer;
-import net.minecraft.src.IInventory;
-import net.minecraft.src.ItemStack;
-import net.minecraft.src.NBTTagCompound;
-import net.minecraft.src.TileEntity;
 
 public abstract class TileEntityInventory extends TileEntity implements IInventory {
 

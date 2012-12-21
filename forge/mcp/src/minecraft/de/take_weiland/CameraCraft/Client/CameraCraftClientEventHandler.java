@@ -1,10 +1,10 @@
 package de.take_weiland.CameraCraft.Client;
 
-import de.take_weiland.CameraCraft.Common.CameraCraft;
-import net.minecraft.src.WorldClient;
+import net.minecraft.client.multiplayer.WorldClient;
 import net.minecraftforge.client.event.sound.SoundLoadEvent;
 import net.minecraftforge.event.ForgeSubscribe;
 import net.minecraftforge.event.world.WorldEvent;
+import de.take_weiland.CameraCraft.Common.CameraCraft;
 
 
 public class CameraCraftClientEventHandler {

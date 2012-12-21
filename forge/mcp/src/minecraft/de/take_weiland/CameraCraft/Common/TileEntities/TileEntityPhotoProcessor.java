@@ -2,17 +2,12 @@ package de.take_weiland.CameraCraft.Common.TileEntities;
 
 import java.util.Random;
 
-import de.take_weiland.CameraCraft.Common.Blocks.BlockPhotoProcessor;
+import net.minecraft.item.Item;
+import net.minecraft.item.ItemStack;
+import net.minecraft.nbt.NBTTagCompound;
 import de.take_weiland.CameraCraft.Common.Inventory.IProgressInventory;
 import de.take_weiland.CameraCraft.Common.Items.CameraCraftItem;
 import de.take_weiland.CameraCraft.Common.Items.ItemPhotoStorage;
-import net.minecraft.src.EntityItem;
-import net.minecraft.src.EntityPlayer;
-import net.minecraft.src.IInventory;
-import net.minecraft.src.Item;
-import net.minecraft.src.ItemStack;
-import net.minecraft.src.NBTTagCompound;
-import net.minecraft.src.NBTTagList;
 
 public class TileEntityPhotoProcessor extends TileEntityInventory implements IProgressInventory {
 

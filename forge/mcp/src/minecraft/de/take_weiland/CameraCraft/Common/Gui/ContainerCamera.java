@@ -1,19 +1,11 @@
 package de.take_weiland.CameraCraft.Common.Gui;
 
-import de.take_weiland.CameraCraft.Common.CameraType;
+import net.minecraft.entity.player.InventoryPlayer;
 import de.take_weiland.CameraCraft.Common.Inventory.InventoryCamera;
 import de.take_weiland.CameraCraft.Common.Inventory.InventoryHelper;
 import de.take_weiland.CameraCraft.Common.Inventory.SlotBattery;
 import de.take_weiland.CameraCraft.Common.Inventory.SlotForItem;
 import de.take_weiland.CameraCraft.Common.Items.CameraCraftItem;
-import net.minecraft.src.EntityPlayer;
-import net.minecraft.src.FurnaceRecipes;
-import net.minecraft.src.IInventory;
-import net.minecraft.src.InventoryPlayer;
-import net.minecraft.src.Item;
-import net.minecraft.src.ItemStack;
-import net.minecraft.src.Slot;
-import net.minecraft.src.TileEntityFurnace;
 
 public class ContainerCamera extends GenericContainer {
 	

@@ -1,10 +1,8 @@
 package de.take_weiland.CameraCraft.Common;
 
-import net.minecraft.src.EntityPlayer;
 import java.util.List;
 
-import com.google.common.io.ByteArrayDataOutput;
-
+import net.minecraft.entity.player.EntityPlayer;
 import de.take_weiland.CameraCraft.Common.Gui.GuiScreens;
 
 /**

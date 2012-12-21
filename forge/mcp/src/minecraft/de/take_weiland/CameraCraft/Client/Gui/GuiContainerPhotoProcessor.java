@@ -1,8 +1,6 @@
 package de.take_weiland.CameraCraft.Client.Gui;
 
-import net.minecraft.src.StringTranslate;
 import de.take_weiland.CameraCraft.Common.Gui.ContainerPhotoProcessor;
-import de.take_weiland.CameraCraft.Common.TileEntities.TileEntityPhotoProcessor;
 
 public class GuiContainerPhotoProcessor extends GuiGenericContainer {
 	
