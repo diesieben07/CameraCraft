@@ -41,6 +41,8 @@ public class CameraCraft {
 	
 	public static final String VERSION = "2.3";
 	
+	private static boolean hasNEI = false;
+	
 	@Instance
 	public static CameraCraft instance;
 	
@@ -50,7 +52,7 @@ public class CameraCraft {
 	public static CameraCraftCommonProxy proxy;
 	
 	@PreInit
-	public static void preInit(FMLPreInitializationEvent evt) {
+	public void preInit(FMLPreInitializationEvent evt) {
 		logger = Logger.getLogger("CameraCraft");
 		logger.setParent(FMLLog.getLogger());
 		logger.setUseParentHandlers(true);
@@ -63,6 +65,10 @@ public class CameraCraft {
 		metadata.credits = "ChemicNova, anicet74, FreqMan, Tomlija";
 		metadata.description = "CameraCraft allows you to craft cameras and take photos which you can hang on the wall. All in Minecraft!\nCredits:\nChemicNova and anicet74 for textures and Ideas\nFreqMan and Tomlija for sounds";
 		
+		try {
+			Class.forName("codechicken.nei.api.API");
+			hasNEI = true;
+		} catch (Exception e) { }
 		
 		conf = new Configuration(evt.getSuggestedConfigurationFile());
 		conf.load();
@@ -73,7 +79,7 @@ public class CameraCraft {
 	}
 	
 	@Init
-	public static void init(FMLInitializationEvent evt) {
+	public void init(FMLInitializationEvent evt) {
 		
 		logger.info("initializing...");
 		
@@ -109,8 +115,12 @@ public class CameraCraft {
 	}
 	
 	@PostInit
-	public static void postInit(FMLPostInitializationEvent evt) {
+	public void postInit(FMLPostInitializationEvent evt) {
 		logger.info("PostIntializing...");
 		IndustrialCraftManager.init();
+	}
+	
+	public static boolean hasNEI() {
+		return hasNEI;
 	}
 }

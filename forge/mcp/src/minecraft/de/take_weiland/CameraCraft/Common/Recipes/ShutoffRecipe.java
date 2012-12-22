@@ -36,7 +36,7 @@ public class ShutoffRecipe implements IRecipe {
 
 	@Override
 	public ItemStack getRecipeOutput() {
-		return parentRecipe.getRecipeOutput();
+		return isEnabled && !forceDisable ? parentRecipe.getRecipeOutput() : null;
 	}
 
 	public static void enable() {

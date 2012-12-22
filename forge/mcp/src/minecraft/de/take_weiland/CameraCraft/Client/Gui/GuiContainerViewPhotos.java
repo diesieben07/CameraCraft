@@ -11,6 +11,7 @@ import com.google.common.io.ByteArrayDataOutput;
 import cpw.mods.fml.common.network.PacketDispatcher;
 import de.take_weiland.CameraCraft.Client.PhotoSizeInfo;
 import de.take_weiland.CameraCraft.Client.Rendering.RenderEntityPhoto;
+import de.take_weiland.CameraCraft.Common.CameraCraft;
 import de.take_weiland.CameraCraft.Common.IPhotoSource;
 import de.take_weiland.CameraCraft.Common.PhotoInformation;
 import de.take_weiland.CameraCraft.Common.PhotoSizeAmountInfo;
@@ -65,6 +66,9 @@ public class GuiContainerViewPhotos extends GuiContainer {
 		super(container);
 		this.container = container;
 		source = container.getSource();
+		for (int i = 0; i < source.numPhotos(); i++) {
+			RenderEntityPhoto.registerUse(new PhotoSizeInfo(source.getPhotoInformation(i).getPhotoId(), 4, 4));
+		}
 	}
 	
 	@Override
@@ -74,18 +78,16 @@ public class GuiContainerViewPhotos extends GuiContainer {
 	
 	@Override
 	public void initGui() {
-		for (int i = 0; i < source.numPhotos(); i++) {
-			RenderEntityPhoto.registerUse(new PhotoSizeInfo(source.getPhotoInformation(i).getPhotoId(), 4, 4));
-		}
-		
+		int neiOffset = CameraCraft.hasNEI() ? 30 : 0;
+				
 		amountInfo = new PhotoSizeAmountInfo[source.numPhotos()];
 		
 		String renameText = StringTranslate.getInstance().translateKey("cameracraft.gui.renamePhoto");
 		String deleteText = StringTranslate.getInstance().translateKey("cameracraft.gui.deletePhoto");
 		int renameDeleteMaxWidth = Math.max(fontRenderer.getStringWidth(renameText), fontRenderer.getStringWidth(deleteText));
-		controlList.add((renameButton = new GuiButton(BUTTON_RENAME, 10, height - 30, renameDeleteMaxWidth + 15, 20, renameText)));
-		controlList.add((prevButton = new GuiButton(BUTTON_PREV, 10, (height / 2) - 10, 15, 20, "<")));
-		controlList.add((nextButton = new GuiButton(BUTTON_NEXT, 30, (height / 2) - 10, 15, 20, ">")));
+		controlList.add((renameButton = new GuiButton(BUTTON_RENAME, 10, height - 30 - neiOffset, renameDeleteMaxWidth + 15, 20, renameText)));
+		controlList.add((prevButton = new GuiButton(BUTTON_PREV, 10, (height / 2) - 10 - neiOffset, 15, 20, "<")));
+		controlList.add((nextButton = new GuiButton(BUTTON_NEXT, 30, (height / 2) - 10 - neiOffset, 15, 20, ">")));
 		
 		controlList.add((incrSizeX = new GuiButton(BUTTON_INCR_X, width - 20, height - 30, 15, 20, ">")));
 		controlList.add((decrSizeX = new GuiButton(BUTTON_DECR_X, width - 60, height - 30, 15, 20, "<")));
@@ -93,12 +95,12 @@ public class GuiContainerViewPhotos extends GuiContainer {
 		controlList.add((incrSizeY = new GuiButton(BUTTON_INCR_Y, width - 30, 10, 20, 20, "^")));
 		controlList.add((decrSizeY = new GuiButtonImage(BUTTON_DECR_Y, width - 30, 60, "/CameraCraft/tex.png", 20, 196)));
 			
-		controlList.add((printButton = new GuiButtonImage(BUTTON_PRINT, 35, height - 90, "/CameraCraft/tex.png", 20, 76)));
-		controlList.add((selectButton = new GuiButtonImage(BUTTON_SELECT, 10, height - 90, "/CameraCraft/tex.png", 0, 96)));	
+		controlList.add((printButton = new GuiButtonImage(BUTTON_PRINT, 35, height - 90 - neiOffset, "/CameraCraft/tex.png", 20, 76)));
+		controlList.add((selectButton = new GuiButtonImage(BUTTON_SELECT, 10, height - 90 - neiOffset, "/CameraCraft/tex.png", 0, 96)));	
 	
-		controlList.add((deleteButton = new GuiButton(BUTTON_DELETE, 10, height - 60, renameDeleteMaxWidth + 15, 20, deleteText)));
+		controlList.add((deleteButton = new GuiButton(BUTTON_DELETE, 10, height - 60 - neiOffset, renameDeleteMaxWidth + 15, 20, deleteText)));
 		
-		controlList.add((teleportButton = new GuiButtonImage(BUTTON_TELEPORT, 50, (height / 2) - 10, "/CameraCraft/tex.png", 0, 196)));
+		controlList.add((teleportButton = new GuiButtonImage(BUTTON_TELEPORT, 50, (height / 2) - 10 - neiOffset, "/CameraCraft/tex.png", 0, 196)));
 		updateButtons();
 	}
 	
@@ -296,11 +298,12 @@ public class GuiContainerViewPhotos extends GuiContainer {
 
 				
 		if (source.canPrint()) {
+			int neiOffset = CameraCraft.hasNEI() ? 30 : 0;
 			// the info how much paper you'll need
 			mc.renderEngine.bindTexture(mc.renderEngine.getTexture("/gui/items.png"));
-			drawTexturedModalRect(60, height - 88, 160, 48, 16, 16);
+			drawTexturedModalRect(60, height - 88 - neiOffset, 160, 48, 16, 16);
 			String paperNeed = String.valueOf(currentPaperNeed);
-			drawString(fontRenderer, paperNeed, 77 - fontRenderer.getStringWidth(paperNeed), height - 79, 0xffffff);
+			drawString(fontRenderer, paperNeed, 77 - fontRenderer.getStringWidth(paperNeed), height - 79 - neiOffset, 0xffffff);
 			
 			// sizeX and sizeY display
 			if (amountInfo[currentImage] != null) {

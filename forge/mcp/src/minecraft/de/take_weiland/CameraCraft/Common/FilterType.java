@@ -64,4 +64,19 @@ public enum FilterType {
 			return TRANSPARENT;
 		}
 	}
+
+	public int toDyeDamage() {
+		switch (this) {
+		case RED:
+			return 1;
+		case GREEN:
+			return 2;
+		case BLUE:
+			return 4;
+		case YELLOW:
+			return 11;
+		default:
+			return -1;
+		}
+	}
 }

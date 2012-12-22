@@ -33,7 +33,7 @@ public class RecipePhotoToPoster implements IRecipe {
 
 	@Override
 	public int getRecipeSize() {
-		return 1;
+		return 9;
 	}
 
 	@Override
